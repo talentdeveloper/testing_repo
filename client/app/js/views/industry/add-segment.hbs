@@ -1,0 +1,38 @@
+		<div class="modal">
+			<form blklab-submit="createSegment" id="form" name="form">
+				<h3>CREATE INDUSTRY SEGMENT:</h3>
+				<div class="row">
+					<input type="text" name="name" placeholder="Segment Name">
+				</div>
+				<div class="row">
+					<div class="segmentcell">
+						<select multiple style="height:300px; width: 100%;" id="companies-list">
+							<option>
+								<b>Select Companies</b>
+							</option>
+                {{#each data}}
+                    <option value="{{ID}}" id="{{Name}}">{{Name}}</option>
+                {{/each}}
+						</select>
+					</div>
+					<div class="segmentcellbutton">
+						<div>
+							<input type="button" value=">" blklab-click="add"> 
+							<p></p>
+							<input type="button" value="<" blklab-click="delete">
+						</div>
+					</div>
+					<div class="segmentcell">
+						<select multiple style="height:300px; width: 100%;" id="added-companies-list">
+							<option>
+								<b>Companies Selected</b>
+							</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<input type="submit" value="Create">
+					<input type="button" value="Cancel" blklab-click="cancel"> 
+				</div>
+			</form>
+		</div>

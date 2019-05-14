@@ -1,0 +1,138 @@
+<section id="hero">
+<div class="text1">
+    <h1 class="title">Industry Analyzer</h1><h2 class="title">RATIOS & ANALYSIS</h2>
+    <p class="sub-title">Gain insights into the performance of banking industry operating ratio results relative to historical performance.</p>
+</div>
+
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/industry">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/industry/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+    </div>
+
+</section>
+
+<section id="main" class="detailed-metrics">
+    <section id="filters">
+        <div class="col">
+            <h3>INDUSTRY SEGMENT:</h3>
+            <select blklab-change="changeSegment" id="segment-list">
+                {{#each indSegments}}
+                    <option value="{{id}}" name="{{userId}}">{{segment}}</option>
+                {{/each}}
+            </select>
+			<div></div>
+			
+			<div class="segment_image">
+				<img blklab-click="peerMenu" HR WIDTH="90%" HR HEIGHT="90%" src="/app/assets/images/multiple-users.svg">	
+				<div id="peerMenu" class="peerMenu">
+					<div blklab-click="showPeers">
+        				<div class = "segment_image2" id="view_segment">
+           					<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/glasses.png">
+         				</div>
+						<div class="peerSet">View segment participants</div>
+						<div id="peerDetails"></div>
+					</div>	
+				<div></div>
+					
+        		<div blklab-click="addSegment">
+					<div class="segment_image2">
+        				<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/plus.png">
+        			</div>
+					<div class="peerSet" id="addSegment">Create custom segment</div>
+				</div>
+				<div blklab-click="editSegment">
+				<div class="segment_image2">
+           			<img HR WIDTH="70%" HR HEIGHT="70%" src="/app/assets/images/pencil.png">
+           		</div>
+					<div class="peerSet" id="editSegment">Edit existing segment</div>
+				</div>
+			</div>
+			</div>			
+        </div>
+
+        <div class="col">
+            <h3>RATIOS TO DISPLAY:</h3>
+            <select blklab-change="changeScreen" id="screen-list">
+                {{#each screens}}
+                    <option value="{{id}}">{{Screen_description}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> PREMIUM CONTENT</h2>
+        </div>
+    </section>
+
+    <section id="data">
+
+        {{{table}}}
+        <!--<table class="rolling">
+            <tr>
+                <th>Metric</th>
+                <th>12-2009</th>
+                <th>12-2010</th>
+                <th>12-2012</th>
+                <th>12-2013</th>
+                <th>12-2014</th>
+                <th>12-2015</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table class="avg">
+            <tr>
+                <th>Avg</th>
+                <th>TOP 25%</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>-->
+
+        <div class="clear"></div>
+
+    </section>
+
+    <section id="background"></section>
+
+    <section id="chart-holder">
+        <header>
+            <div class="inner">
+                <h2>DETAILED METRICS</h2>
+            </div>
+            <div id="close">Close X</div>
+        </header>
+        <div class="container">
+            <div id="single-table">
+
+            </div>
+            <div class="left-graphs">
+            <div id="XY_Radio" style="display: block; background:#fff; padding:5px;">
+                Results:
+                <input type="radio" id="XY1" name="XY_Display" value="PCT" blklab-change="changeType"> Percentiles <input type="radio" id="XY2" name="XY_Display" value="ACT" blklab-change="changeType" checked> Actuals
+            </div>
+           	 	<section id="xydiv"></section>
+                <section id="chartdiv"></section>
+            </div>
+            <div class="right-graphs">
+                <section id="bardiv"></section>
+            </div>
+        </div>
+    </section>
+</section>

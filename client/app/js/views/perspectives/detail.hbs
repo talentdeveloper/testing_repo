@@ -1,0 +1,19 @@
+<section id="main" class="posts">
+    <div class="inner">
+        <div class="divider-full"></div>
+
+        <section class="col-left">
+            <h1>{{title}}</h1>
+            <p>{{timestamp}}</p>
+            {{#if title_image}}
+                <img src="/app/assets/images/{{title_image}}" class="aboutImg smallImg no-lightense">
+            {{/if}}
+            <p><strong>by {{author}}</strong></p>
+        </section>
+
+        <section class="col-right">
+            {{{content}}}
+        </section>
+
+    </div>
+</section>

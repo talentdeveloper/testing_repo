@@ -1,0 +1,19 @@
+<section id="data">
+    <h2>Users</h2>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>User Level</th>
+            <th>Created</th>
+            <th>Active</th>
+        </tr>
+        {{#each data}}
+            <tr>
+                <td>{{email}}</td>
+                <td>{{level}}</td>
+                <td>{{created}}</td>
+                <td>{{active}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</section>

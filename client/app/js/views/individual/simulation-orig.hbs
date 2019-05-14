@@ -1,0 +1,278 @@
+<section id="hero">
+    <h1 class="title">Individual Bank Analyzer</h1><h2 class="title">WHAT-IF SIMULATOR</h2>
+    <p class="sub-title">Gain insights into the performance of individual banks by simulating a range of what-if scenarios.</p>
+
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/individual">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li><a href="/individual/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/individual/outlook">ESTIMATES & OUTLOOK</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/individual/simulation">WHAT-IF SIMULATOR</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<section id="main" class="individual">
+    <section id="filters">
+        <div class="col">
+            <h3>SELECT BANK <img src="/app/assets/images/premium-icon-red.png"></h3>
+            <select blklab-change="changeCompany" id="company-list">
+                {{#each companies}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="col">
+        </div>
+
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> SAVE/LOAD SIMULATION</h2>
+        </div>
+    </section>
+
+    <section id="data" class="sim">
+        <div class="block full auto">
+            <header>SIMULATED OUTCOMES</header>
+            <section class="detail"  id="outcomes">
+                <div class="col">
+                    <label>Total Shareholder Returns: </label> <span>0% (0%) <img src="/app/assets/images/outcome-arrow.png"> 0% (0%) <img src="/app/assets/images/outcome-graph.png"></span>
+                </div>
+            </section>
+        </div>
+
+        <div class="block full auto">
+            <header>ASSUMPTION DRIVERS</header>
+            <section class="detail" id="drivers">
+                <div class="col">
+                    <label>Efficiency Ratio  Scenario</label>
+                    <input type="range" id="er-slider" blklab-change="updateER" class="reverse" />
+                    <div id="er-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Loan Loss Ratio Scenario</label>
+                    <input type="range" id="llr-slider" blklab-change="updateLLR" class="reverse" />
+                    <div id="llr-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Asset Yield Scenario</label>
+                    <input type="range" id="ay-slider" blklab-change="updateAY" />
+                    <div id="ay-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Leverage Scenario</label>
+                    <input type="range" id="lev-slider" blklab-change="updateLev" />
+                    <div id="lev-years" class="buttons">
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <div class="block full auto">
+            <header>SIMULATION DETAILS</header>
+            <section class="detail" id="simulation-detail">
+                <img src="/assets/images/list-view.png" class="left-button" id="list-view">
+                <img src="/assets/images/block-view.png" class="left-button" id="block-view">
+                <img src="/assets/images/graph-view.png" class="left-button" id="graph-view">
+
+
+                <div class="tree-top">
+                    <img src="/assets/images/tree-top.png">
+                    Total<br>
+                    Returns
+                </div>
+
+                <div class="vertical-line"></div>
+
+                <div class="cell">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Return on Equity</div>
+                    <div id="ROAE" class="graph"></div>
+                </div>
+
+                <div class="vertical-line"></div>
+                <div class="fork"></div>
+
+                <div class="cell two">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Operating Return on Equity</div>
+                    <div id="Operating_ROE" class="graph"></div>
+                </div>
+
+                <div class="cell two">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Extraordinary Items & Other Adjs</div>
+                    <div id="Extra_Adj_Other" class="graph"></div>
+                </div>
+
+                <div class="vertical-line first"></div>
+                <div class="fork three">
+                    <div class="vertical-line"></div>
+                </div>
+
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Oeprating Margin</div>
+                    <div id="Op_Margin" class="graph"></div>
+                </div>
+
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Effective Tax Rate</div>
+                    <div id="ROAA_Effective_Tax_Rate" class="graph"></div>
+                </div>
+
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Capital Utilization</div>
+                    <div id="Capital_Utilization" class="graph"></div>
+                </div>
+
+                <div></div>
+                <div class="fork-boxouter">
+                    <div class="vertical-line"></div>
+                    <div class="fork four"></div>
+                </div>
+                <div class="fork-boxouter">
+                    <div class="vertical-line"></div>
+                    <div class="fork four"></div>
+                </div>
+                <div></div>
+                <div class="cell four">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Efficiency_Ratio</div>
+                    <div id="Efficiency_Ratio" class="graph"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Loan Loss Ratio</div>
+                    <div id="LLR" class="graph"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Asset Yield</div>
+                    <div id="Asset_Yield" class="graph"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Leverage</div>
+                    <div id="Leverage" class="graph"></div>
+                </div>
+
+                <!--<table style='table-layout:fixed; width:100%; height: 650px'>
+                    <tr>
+                        <td style='width:22%; height: 100%; vertical-align:middle;'>
+                            <div style='width 100%; height:3%; background:white; padding:10px;'>Return on Equity</div>
+                            <div id='ROAE' style='width 100%; height:22%; background:white;'></div>
+                        </td>
+
+                        <td style=' width:2%; height: 100%; vertical-align:middle;'>
+                            <div style='float: left; width: 50%; height: 100%'>
+                                <div style='border-bottom: 1px solid black; width:100%; height:50%'></div>
+                                <div style='border-top: 1px solid black; width:100%; height:50%'></div>
+                            </div>
+                            <div style='float: left; width: 50%; height: 100%'>
+                                <div style='border: 0; width:100%; height:33%'></div>
+                                <div style='border-left: 1px solid black; border-bottom: 1px solid black; border-top: 1px solid black;width:100%; height:34%'></div>
+                                <div style='border: 0px solid black; width:100%; height:33%'></div>
+                            </div>
+                        </td>
+
+                        <td style='width:22%; height: 100%; vertical-align:middle;'>
+                            <div style='border:0; width 22%; height:25%'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Operating Return on Equity</div>
+                            <div id="Operating_ROE" style='background:white; width 100%; height:22%'></div>
+                            <div style='border:0; width 99%; height:4%'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Extraordinary Items & Other Adjs</div>
+                            <div id="Extra_Adj_Other" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:25%'></div>
+                        </td>
+
+                        <td style='width:2%; height: 100%; vertical-align:middle;'>
+                            <div style='float: left; width: 50%; height: 50%'>
+                                <div style='border-bottom: 1px solid black; width:100%; height:74%'></div>
+                                <div style='border-top: 1px solid black; width:100%; height:26%'></div>
+                            </div>
+
+                            <div style='float: left; width: 50%; height: 100%'>
+                                <div style='border: 0; width:100%; height:23%'></div>
+                                <div style='border-left: 1px solid black; border-bottom: 1px solid black; border-top: 1px solid black;width:100%; height:27%'></div>
+                                <div style='border-left: 1px solid black; border-bottom: 1px solid black; border-top: 1px solid black;width:100%; height:27%'></div>
+                                <div style='border: 0px solid black; width:100%; height:23%'></div>
+                            </div>
+                        </td>
+
+
+                        <td style='width:22%; height: 100%; vertical-align:middle;'>
+                            <div style='border:0; width 99%; height:12%'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Operating Margin</div>
+                            <div id="Op_Margin" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:5%'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Effective Tax Rate</div>
+                            <div id="ROAA_Effective_Tax_Rate" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:5%'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Capital Utilization</div>
+                            <div id="Capital_Utilization" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:12%'></div>
+                        </td>
+
+                        <td style='width:2%; height: 100%; vertical-align:middle;'>
+                            <div style='float: left; width: 50%; height: 100%'>
+                                <div style='border-bottom: 1px solid black; width:100%; height:23%'></div>
+                                <div style='border-bottom: 1px solid black; width:100%; height:54%'></div>
+                                <div style='border: 0; width:100%; height:23%'></div>
+                            </div>
+
+                            <div style='float: left; width: 50%; height: 100%'>
+                                <div style='border-bottom: 1px solid black; width:100%; height:11%'></div>
+                                <div style='border-bottom: 1px solid black; border-left: 1px solid black;width:100%; height:25%'></div>
+                                <div style='border-bottom: 1px solid black; width:100%; height:28%'></div>
+                                <div style='border-bottom: 1px solid black; border-left: 1px solid black;width:100%; height:25%'></div>
+                                <div style='border:0; width:100%; height:11%'></div>
+                            </div>
+                        </td>
+
+
+                        <td style='width:22%; height: 100%; vertical-align:middle;'>
+                            <div style='background:white;  width 100%; height:3%; padding:10px;'>Efficiency_Ratio</div>
+                            <div id="Efficiency_Ratio" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:10px; background:#e6e6e6;'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Loan Loss Ratio</div>
+                            <div id="LLR" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:10px; background:#e6e6e6;'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Income Yield on Assets</div>
+                            <div id="Asset_Yield" style='background:white; width 99%; height:22%'></div>
+                            <div style='border:0; width 99%; height:10px; background:#e6e6e6;'></div>
+                            <div style='background:white; width 100%; height:3%; padding:10px;'>Leverage</div>
+                            <div id="Leverage" style='background:white; width 99%; height:22%'></div>
+                        </td>
+
+                    </tr>
+                </table>-->
+            </section>
+        </div>
+
+    </section>
+</section>

@@ -1,0 +1,1303 @@
+<section id="hero">
+<div class="text1">
+    <h1 class="title">Individual Bank Analyzer</h1><h2 class="title">WHAT-IF SIMULATOR</h2>
+    <p class="sub-title">Gain insights into the performance of individual banks by simulating a range of what-if scenarios.</p>
+</div>
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/individual">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li><a href="/individual/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/individual/outlook"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspESTIMATES & OUTLOOK</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/individual/simulation"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspWHAT-IF SIMULATOR</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<section id="main" class="individual">
+    <section id="filters">
+        <div class="col">
+            <h3>SELECT BANK </h3>
+            <select blklab-change="changeCompany" id="company-list">
+                {{#each companies}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="col">
+            <h3>INDUSTRY SEGMENT:</h3>
+            <select blklab-change="changeSegment" id="segment-list">
+                {{#each segments}}
+               <option value="{{id}}" name="{{userId}}">{{segment}}</option>
+                {{/each}}
+            </select> 
+			<div class="segment_image">
+				<img blklab-click="peerMenu" HR WIDTH="90%" HR HEIGHT="90%" src="/app/assets/images/multiple-users.svg">	
+				<div id="peerMenu" class="peerMenu">
+					<div blklab-click="showPeers">
+        				<div class = "segment_image2" id="view_segment">
+           					<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/glasses.png">
+         				</div>
+						<div class="peerSet">View segment participants</div>
+						<div id="peerDetails"></div>
+					</div>	
+				<div></div>
+					
+        		<div blklab-click="addSegment">
+					<div class="segment_image2">
+        				<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/plus.png">
+        			</div>
+					<div class="peerSet" id="addSegment">Create custom segment</div>
+				</div>
+				<div blklab-click="editSegment">
+				<div class="segment_image2">
+           			<img HR WIDTH="70%" HR HEIGHT="70%" src="/app/assets/images/pencil.png">
+           		</div>
+					<div class="peerSet" id="editSegment">Edit existing segment</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+        <div class="col">
+        </div>
+<!--
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> SAVE/LOAD SIMULATION</h2>
+        </div>
+
+--!>
+    </section>
+
+    <section id="data" class="sim" blklab-click="hide_tag">
+    <div id="anchor"></div>
+        <div id="results" class="block full auto">
+            <header>RESULTS SNAPSHOT</header>
+            <section class="detail"  id="outcomes">
+                <div id = "simulation_outcomes" class="col">
+
+                </div>
+            </section>
+        </div>
+
+ <!--       <div class="block full auto">
+            <header>ASSUMPTIONS</header>
+            <section class="detail" id="drivers">
+            </section>
+        </div> --!>
+
+        <div class="block full auto">
+            
+            	<header>DRIVERS&nbsp&nbsp(&nbspClick&nbsp<div class="circleHeader"><img src="/app/assets/images/graph-icon.png">&nbsp to change input values for selected charts)</div></header>
+            	
+            
+            <section class="detail" id="simulation-detail">
+<!--                <img src="/assets/images/list-view.png" class="left-button" id="list-view">
+                    <img src="/assets/images/block-view.png" class="left-button" id="block-view">
+                    <img src="/assets/images/graph-view.png" class="left-button" id="graph-view">
+--!>
+                <div class="cell">
+                     <div id="controls_total_return_1" class = "trafficlights"></div>
+                    <div class="header">Total Returns (%)</div>
+                    <div id="total_return_1" class="graph1"></div>
+                </div>
+
+                <div class="vertical-line"></div>
+                <div class="fork"></div>
+
+                <div class="cell two">
+                    <div id="controls_dividend_yield" class = "trafficlights"></div>
+                    <div class="header">Dividend Yield (%)</div>
+                    <div id="dividend_yield" class="graph1"></div>
+                </div>
+
+                <div class="cell two">
+                     <div id="controls_shares_yield" class = "trafficlights"></div>
+                    <div class="header">Share Price Appreciation (%)</div>
+                    <div id="shares_yield" class="graph1"></div>
+                </div>
+
+                <div class="vertical-lineright"></div>
+                <div class="fork twoskinny">
+
+                </div>
+
+
+
+                <div class="cell two">
+                    <div id="controls_mkt_cap" class = "trafficlights"></div>
+                    <div class="header">Market Capitalization ($bn)</div>
+                    <div id="mkt_cap" class="graph1"></div>
+                </div>
+
+
+                <div class="cell two">
+                    <div class="controls" blklab-click="slider_show" data-id="Common_share_growth_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                    </div>
+                    <div id="controls_Common_share_growth" class = "trafficlights"></div>
+                    <div id="Common_share_growth_tag" class="tag">
+
+                    </div>
+                    <div class="header">Common Shares Growth (%)</div>
+                    <div id="Common_share_growth" class="graph1"></div>
+                </div>
+
+                <div class="vertical-lineleft"></div>
+                <div class="fork two"></div>
+
+
+                <div class="cell three">
+                    <div id="controls_equity_growth" class = "trafficlights"></div>
+                    <div class="header"> Equity Growth (%)</div>
+                    <div id="equity_growth" class="graph1"></div>
+                </div>
+
+                <div class="cell threeblank">
+                    <div class="controls"></div>
+                    <div class="header"></div>
+                </div>
+
+                <div class="cell three">
+                    <div id="controls_spread" class = "trafficlights"></div>
+                    <div class="header">Economic Profitability (%)</div>
+                    <div id="spread" class="graph1"></div>
+                </div>
+
+                <div></div>
+                <div class="fork-box">
+                    <div class="vertical-line firstleft"></div>
+                    <div class="fork fourleft"></div>
+                </div>
+                <div class="fork-box">
+                    <div class="vertical-linewideright"></div>
+                    <div class="fork fourright"></div>
+                </div>
+                <div></div>
+                <div class="cell four">
+                    <div class="controls" blklab-click="slider_show" data-id="Total_Asset_Growth_Rate_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                    </div>
+                    <div id="controls_Total_Asset_Growth_Rate" class = "trafficlights"></div>
+                    <div id="Total_Asset_Growth_Rate_tag" class="tag">
+
+                    </div>
+                    <div class="header">Total Asset Growth (%) </div>
+
+                    <div id="Total_Asset_Growth_Rate" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+
+                    <div class="controls" blklab-click="slider_show" data-id="Leverage_tag"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                    <div id="controls_Leverage" class = "trafficlights"></div>
+                    <div id="Leverage_tag" class="tag"></div>
+                    <div class="header">Leverage</div>
+                    <div id="Leverage" class="graph1"></div>
+             </div>
+
+
+
+                <div class="cell four">
+                <div class="controls" blklab-click="slider_show" data-id="ROAE_tag"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                <div id="controls_ROAE" class = "trafficlights"></div>
+                <div id="ROAE_tag" class="tag">
+
+                </div>
+                    <div class="header">Return on Equity (%)</div>
+
+                    <div id="ROAE" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls" blklab-click="slider_show" data-id="Cost_of_Capital_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                    <div id="controls_Cost_of_Capital" class = "trafficlights"></div>
+                    <div id="Cost_of_Capital_tag" class="tag">
+
+                    </div>
+                    <div class="header">Cost of Equity (%)</div>
+
+                    <div id="Cost_of_Capital" class="graph1"></div>
+                </div>
+
+            <div></div>
+
+            <div class="fork-box">
+<!--
+                <div class="vertical-line"></div>
+                <div id="plus-assetgrowth" blklab-click="expandassetgrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-assetgrowth" blklab-click="collapseassetgrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+--!>
+            </div>
+
+            <div class="fork-box">
+<!--
+                <div class="vertical-line"></div>
+                <div id="plus-otherequitygrowth" blklab-click="expandotherequitygrowth"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-otherequitygrowth" blklab-click="collapseotherequitygrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+--!>
+            </div>
+
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-roaa" blklab-click="expandroaa"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-roaa" blklab-click="collapseroaa"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-coe" blklab-click="expandcoe"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-coe" blklab-click="collapsecoe"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div id="plus-assetgrowth-results">
+
+                <div></div>
+
+                <div class="fork-box">
+                    <div class="vertical-line"></div>
+                </div>
+
+                <div class="fork-box"></div>
+                <div class="fork-box"></div>
+                <div class="fork-box"></div>
+
+                <div class="fork threeleftfirst">
+                    <div class="vertical-line"></div>
+                </div>
+
+                <div></div>
+
+                <div class="cell four">
+                    <div class="controls"></div>
+                    <div class="header">Loan Growth (%) </div>
+                    <div id="wgt_loan_growth" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Loan Mix (% Assets) </div>
+                    <div id="wgt_other_ea_growth" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+
+                    <div class="header">Other Asset Growth (%)</div>
+                    <div id="wgt_other_asset_growth" class="graph1"></div>
+                </div>
+
+                <div class="cell fourblank">
+                    <div class="controls"></div>
+                    <div class="header">&nbsp</div>
+                    <div id="" class="graph1"></div>
+                </div>
+
+                <div></div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="fork-box"></div>
+                    <div class="fork-box"></div>
+                    <div class="fork-box"></div>
+
+                    <div class="fork threeleftfirst">
+                        <div class="vertical-line"></div>
+                    </div>
+
+                    <div></div>
+
+                     <div class="cell four">
+                            <div class="controls"></div>
+                        <div class="header">Domestic Loan Growth (%) </div>
+                        <div id="wgt_loan_growth" class="graph1"></div>
+                    </div>
+
+                    <div class="cell four">
+                        <div class="controls"><img src="/assets/images/controls.png"></div>
+                        <div class="header">Domestic Loan Mix (%)</div>
+                        <div id="domesticloanmix" class="graph1"></div>
+                    </div>
+
+                    <div class="cell four">
+                        <div class="controls"></div>
+                        <div class="header">Foreign Loan Growth (%) </div>
+                        <div id="wgt_other_asset_growth" class="graph1"></div>
+                    </div>
+
+                    <div class="cell fourblank">
+                        <div class="controls"></div>
+                        <div class="header">&nbsp</div>
+                        <div id="" class="graph1"></div>
+                        </div>
+
+                    <div></div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="fork-box"></div>
+                    <div class="fork-box"></div>
+                    <div class="fork-box"></div>
+
+                    <div class="fork all"></div>
+                    <div></div>
+
+                    <div class="cell four">
+                        <div class="controls"></div>
+                        <div class="header">Growth Contribution: Consumer Loans (%) </div>
+                        <div id="wgt_loan_growth" class="graph1"></div>
+                    </div>
+
+                        <div class="cell four">
+                        <div class="controls"><img src="/assets/images/controls.png"></div>
+                        <div class="header">Growth Contribution: Real Estate Loans (%) </div>
+                        <div id="wgt_other_ea_growth" class="graph1"></div>
+                    </div>
+
+                        <div class="cell four">
+                           <div class="controls"></div>
+                        <div class="header">Growth Contribution: C&I Loans (%)</div>
+                        <div id="wgt_other_asset_growth" class="graph1"></div>
+                       </div>
+
+                         <div class="cell four">
+                        <div class="controls"></div>
+                        <div class="header">Growth Contribution: Other Loans (%)</div>
+                        <div id="" class="graph1"></div>
+                    </div>
+
+                    <div></div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                        <div id="plus-wgtloangrowth" blklab-click="expandwgtloangrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/plus.svg"></div>
+                        <div id="minus-wgtloangrowth" blklab-click="collapsewgtloangrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+                    </div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                        <div id="plus-wgtreloangrowth" blklab-click="expandwgtreloangrowth"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                        <div id="minus-wgtreloangrowth" blklab-click="collapsewgrreloangrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+                    </div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                        <div id="plus-wgtciloangrowth" blklab-click="expandwgtciloangrowth"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                        <div id="minus-wgtciloangrowth" blklab-click="collapsewgtciloangrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+                    </div>
+
+                    <div class="fork-box">
+                        <div class="vertical-line"></div>
+                        <div id="plus-wgtotherloangrowth" blklab-click="expandwgtotherloangrowth"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                        <div id="minus-wgtotherloangrowth" blklab-click="collapsewgtotherloanggrowth"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+                    </div>
+
+                    <div></div>
+
+                    <div id="plus-wgtloangrowth-results">
+
+                        <div class="fork-box">
+                            <div class="vertical-line"></div>
+                        </div>
+                        <div class="fork-box"></div>
+                        <div class="fork-box"></div>
+                        <div class="fork-box"></div>
+
+                        <div class="fork two"></div>
+                        <div></div>
+
+                        <div class="cell four">
+                            <div class="controls"></div>
+                            <div class="header">Consumer Loan Growth (%)</div>
+                            <div id="consumerloan_growth" class="graph1"></div>
+                        </div>
+
+                        <div class="cell four">
+                             <div class="controls"><img src="/assets/images/controls.png"></div>
+                             <div class="header">Consumer Loan Mix (%) </div>
+                            <div id="consumerloanmix" class="graph1"></div>
+                        </div>
+
+                        <div class="cell fourblank">
+                            <div class="controls"></div>
+                            <div class="header">&nbsp</div>
+                            <div id="" class="graph1"></div>
+                          </div>
+
+                        <div class="cell fourblank">
+                               <div class="controls"></div>
+                            <div class="header">&nbsp</div>
+                            <div id="" class="graph1"></div>
+                        </div>
+
+                        <div></div>
+
+                        <div class="fork-box">
+                            <div class="vertical-line"></div>
+                        </div>
+                        <div class="fork-box"></div>
+                        <div class="fork-box"></div>
+                        <div class="fork-box"></div>
+
+                        <div class="fork fourleft    "></div>
+
+                        <div></div>
+
+                        <div class="cell four">
+                            <div class="controls"></div>
+                            <div class="header">Consumer Loan Market Share (%)</div>
+                            <div id="wgt_loan_growth" class="graph1"></div>
+                        </div>
+
+                        <div class="cell four">
+                            <div class="controls"><img src="/assets/images/controls.png"></div>
+                               <div class="header">Consumer Loan Industry Growth (%) </div>
+                            <div id="wgt_other_ea_growth" class="graph1"></div>
+                        </div>
+
+                        <div class="cell fourblank">
+                            <div class="controls"></div>
+                            <div class="header">&nbsp</div>
+                            <div id="" class="graph1"></div>
+                        </div>
+
+                        <div class="cell fourblank">
+                            <div class="controls"></div>
+                               <div class="header">&nbsp</div>
+                                <div id="" class="graph1"></div>
+                        </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div id="plus-coe-results">
+                <div></div>
+
+
+             <div class="fork-box"></div>
+             <div class="fork-boxouter">
+                 <div class="vertical-linefarright"></div>
+                 <div class="fork threeright">
+                     <div class="vertical-lineleft"></div>
+                 </div>
+             </div>
+
+             <div></div>
+
+                <div class="cell fourblank">
+                    <div class="controls"></div>
+                    <div class="header">&nbsp </div>
+                    <div class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls" blklab-click="slider_show" data-id="Risk_Free_Rate_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+
+                    <div id="Risk_Free_Rate_tag" class="tag">
+
+                    </div>
+                    <div class="header">10yr US Bond Rate (%) </div>
+                    <div id="Risk_Free_Rate" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls" blklab-click="slider_show" data-id="Beta_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                    <div id="controls_Beta" class = "trafficlights"></div>
+                    <div id="Beta_tag" class="tag">
+
+                    </div>
+                    <div class="header">Stock Beta</div>
+                    <div id="Beta" class="graph1"></div>
+                </div>
+
+                <div class="cell four">
+                    <div class="controls" blklab-click="slider_show" data-id="Equity_Risk_Premium_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+
+                    <div id="Equity_Risk_Premium_tag" class="tag">
+
+                    </div>
+                    <div class="header">Equity Risk Premium (%)</div>
+                    <div id="Equity_Risk_Premium" class="graph1"></div>
+                </div>
+
+            </div>
+<!--
+            <div id="plus-otherequitygrowth-results">
+             <div class="fork-box">
+                 <div class="vertical-line"></div>
+                 <div class="fork threeright"></div>
+             </div>
+
+             <div class="fork-box"></div>
+             <div></div>
+
+             <div class="cell three">
+                 <div class="controls"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                 <div id="controls_dividend_payout" class = "trafficlights"></div>
+                 <div class="header">Dividend Payout (%)</div>
+                 <div id="dividend_payout" class="graph1"></div>
+             </div>
+
+             <div class="cell three">
+                    <div class="controls" blklab-click="slider_show" data-id="Leverage_tag"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                    <div id="controls_Leverage" class = "trafficlights"></div>
+                    <div id="Leverage_tag" class="tag"></div>
+                    <div class="header">Leverage</div>
+                    <div id="Leverage" class="graph1"></div>
+             </div>
+
+             <div class="cell threeblank">
+                 <div class="controls"></div>
+                 <div class="header">&nbsp</div>
+                 <div id="" class="graph1"></div>
+             </div>
+
+
+            </div>
+--!>
+
+            <div id="plus-roaa-results">
+            <div></div>
+
+            <div class="vertical-lineright"></div>
+                <div class="fork twoskinny"></div>
+
+            <div></div>
+
+
+                <div class="cell fourblank">
+                    <div class="controls"></div>
+                    <div class="header">&nbsp</div>
+                    <div id="" class="graph1"></div>
+                </div>
+
+                <div class="cell three">
+
+                    <div class="controls" blklab-click="slider_show" data-id="Leverage1_tag">
+                        <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                    </div>
+                    <div id="controls_Leverage1" class = "trafficlights"></div>
+                    <div id="Leverage1_tag" class="tag"></div>
+                    <div class="header">Leverage</div>
+                    <div id="Leverage1" class="graph1"></div>
+                </div>
+
+
+                <div class="cell three">
+                    <div id="controls_ROAA" class = "trafficlights"></div>
+                    <div class="header">Return on Average Assets</div>
+                    <div id="ROAA" class="graph1"></div>
+                </div>
+
+                <div class="cell fourblank">
+                    <div class="controls"></div>
+                    <div class="header">&nbsp</div>
+                    <div id="" class="graph1"></div>
+                </div>
+
+                <div class="vertical-lineright"></div>
+                <div class="fork two"></div>
+
+            <div class="cell three">
+                <div id="controls_op_roaa" class = "trafficlights"></div>
+                <div class="header">Operating Return on Assets</div>
+                <div id="op_roaa" class="graph1"></div>
+            </div>
+
+            <div class="cell threeblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div class="controls" blklab-click="slider_show" data-id="Extra_Adj_Other_ROAA_tag">
+                    <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                </div>
+                <div id="controls_Extra_Adj_Other_ROAA" class = "trafficlights"></div>
+                <div id="Extra_Adj_Other_ROAA_tag" class="tag"></div>
+                <div class="header">Extraordinary Items & Other Adjs</div>
+                <div id="Extra_Adj_Other_ROAA" class="graph1"></div>
+            </div>
+
+            <div></div>
+            <div class = "vertical-line firstleft"></div>
+
+            <div class="fork three">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="cell three">
+                 <div id="controls_Op_Margin" class = "trafficlights"></div>
+                <div class="header">Operating Margin</div>
+                <div id="Op_Margin" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div class="controls" blklab-click="slider_show" data-id="ROAA_Effective_Tax_Rate_tag">
+                    <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                </div>
+                <div id="controls_ROAA_Effective_Tax_Rate" class = "trafficlights"></div>
+                <div id="ROAA_Effective_Tax_Rate_tag" class="tag"></div>
+                <div class="header">Effective Tax Rate</div>
+                <div id="ROAA_Effective_Tax_Rate" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div class="controls" blklab-click="slider_show" data-id="Asset_Yield_tag">
+                    <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                </div>
+                <div id="controls_Asset_Yield" class = "trafficlights"></div>
+                <div id="Asset_Yield_tag" class="tag"></div>
+                <div class="header">Asset Yield</div>
+                <div id="Asset_Yield" class="graph1"></div>
+            </div>
+
+            <div></div>
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div class="fork four"></div>
+            </div>
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div class="fork four"></div>
+            </div>
+            <div></div>
+            <div class="cell four">
+                <div class="controls" blklab-click="slider_show" data-id="Efficiency_Ratio_tag"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                <div id="controls_Efficiency_Ratio" class = "trafficlights"></div>
+                <div id="Efficiency_Ratio_tag" class="tag">
+
+                </div>
+                <div class="header">Efficiency_Ratio</div>
+                <div id="Efficiency_Ratio" class="graph1"></div>
+            </div>
+
+            <div class="cell four">
+                <div class="controls" blklab-click="slider_show" data-id="LLR_tag"><div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div></div>
+                <div id="controls_LLR" class = "trafficlights"></div>
+                <div id="LLR_tag" class="tag">
+
+                </div>
+                <div class="header">Loan Loss Ratio</div>
+                <div id="LLR" class="graph1"></div>
+            </div>
+
+            <div class="cell four">
+                <div class="controls" blklab-click="slider_show" data-id="net_int_margin_grossed_tag">
+                    <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                </div>
+                <div id="controls_net_int_margin_grossed" class = "trafficlights"></div>
+                <div id="net_int_margin_grossed_tag" class="tag">
+
+                </div>
+                <div class="header">Net Interest Margin</div>
+                <div id="net_int_margin_grossed" class="graph1"></div>
+            </div>
+
+            <div class="cell four">
+                <div class="controls" blklab-click="slider_show" data-id="non_int_margin_grossed_tag">
+                    <div class="circlecontrol light"><img src="/app/assets/images/graph-icon.png"></div>
+                </div>
+                <div id="controls_non_int_margin_grossed" class = "trafficlights"></div>
+                <div id="non_int_margin_grossed_tag" class="tag">
+
+                </div>
+                <div class="header">Non Interest Income Yield</div>
+                <div id="non_int_margin_grossed" class="graph1"></div>
+            </div>
+
+            <div></div>
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-er" blklab-click="expander"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-er" blklab-click="collapseer"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-llr" blklab-click="expandllr"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-llr" blklab-click="collapsellr"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-nim" blklab-click="expandnim"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-nim" blklab-click="collapsenim"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+            </div>
+
+
+            <div id="plus-er-results">
+
+
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+            <div class="fork threeleftfirst"></div>
+
+            <div></div>
+
+            <div class="cell four">
+                <div id="controls_Costs_EA" class = "trafficlights"></div>
+                    <div class="header">Cost Efficiency (%)</div>
+                    <div id="Costs_EA" class="graph1"></div>
+                </div>
+
+             <div class="cell fourblank">
+                     <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div id="controls_Asset_Yield_EA" class = "trafficlights"></div>
+                <div class="header">Asset Yield (% EA)</div>
+                <div id="Asset_Yield_EA" class="graph1"></div>
+               </div>
+
+            <div class="cell fourblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+            <div></div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+            <div class="fork threeleftfirst">
+                <div class="vertical-line"></div>
+            </div>
+
+             <div class="cell four">
+                     <div id="controls_salaryexpense" class = "trafficlights"></div>
+                <div class="header">Salary Expense (% EA)</div>
+                <div id="salaryexpense" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div id="controls_gaexpense" class = "trafficlights"></div>
+                <div class="header">Goodwill & Amort. Expense (% EA)</div>
+                <div id="gaexpense" class="graph1"></div>
+               </div>
+
+            <div class="cell four">
+                <div id="controls_externalexpense" class = "trafficlights"></div>
+                <div class="header">External Expenses (% EA)</div>
+                <div id="externalexpense" class="graph1"></div>
+            </div>
+
+            <div class="cell fourblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+
+
+            <div></div>
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-salaryer" blklab-click="expandsalaryer"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-salaryer" blklab-click="collapsesalaryer"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+
+            </div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+                <div id="plus-externaler" blklab-click="expandexternaler"><img HR WIDTH="10%" HR HEIGHT="10%" src="/assets/images/plus.svg"></div>
+                <div id="minus-externaler" blklab-click="collapseexternaler"><img HR WIDTH="10%" HR HEIGHT=10%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div class="fork-box">
+
+            </div>
+                <div></div>
+
+            <div id="plus-salaryer-results">
+            <div></div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+                <div class="forkleftfirst"></div>
+
+            <div></div>
+
+
+             <div class="cell four">
+                     <div id="controls_salaryperfte" class = "trafficlights"></div>
+                <div class="header">Salary Per FTE ($)</div>
+                <div id="salaryperfte" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div id="controls_eaperfte" class = "trafficlights"></div>
+                <div class="header">Earning Asset per FTE ($)</div>
+                <div id="eaperfte" class="graph1"></div>
+               </div>
+
+             <div class="cell fourblank">
+                     <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+                </div>
+
+            <div class="cell fourblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+               </div>
+
+            </div>
+
+            <div id="plus-externaler-results">
+            <div></div>
+
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="fork-box">
+            </div>
+
+            <div class="fork all">
+                <div class="fork-box"></div>
+                <div class="fork-box">
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="fork-box">
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="fork-box"></div>
+            </div>
+
+
+            <div></div>
+
+
+             <div class="cell four">
+                     <div id="controls_premisesexpense" class = "trafficlights"></div>
+                <div class="header">Premises Expense (% EA)</div>
+                <div id="premisesexpense" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div id="controls_dataprocessingexpense" class = "trafficlights"></div>
+                <div class="header">Data Processing Expense (% EA)</div>
+                <div id="dataprocessingexpense" class="graph1"></div>
+               </div>
+
+             <div class="cell four">
+                     <div id="controls_advertisingexpense" class = "trafficlights"></div>
+                <div class="header">Advertising Expense (% EA)</div>
+                <div id="advertisingexpense" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div class="controls"></div>
+                <div class="header">Other Expenses (% EA)</div>
+                <div id="otherexpense" class="graph1"></div>
+               </div>
+
+            </div>
+
+            </div>
+
+
+
+
+
+
+
+            <div id="plus-llr-results">
+
+
+
+            <div class="fork-box"></div>
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+            <div class="fork"></div>
+
+            <div></div>
+
+            <div class="cell two">
+                <div id="controls_llpea" class = "trafficlights"></div>
+                    <div class="header">Loan Loss Provisions (% EA)</div>
+                    <div id="llpea" class="graph1"></div>
+                </div>
+
+            <div class="cell two">
+                <div id="controls_Asset_Yield_EA1" class = "trafficlights"></div>
+                <div class="header">Revenue Productivity (% EA)</div>
+                <div id="Asset_Yield_EA1" class="graph1"></div>
+               </div>
+
+            <div></div>
+
+            <div class="fork-box"></div>
+            <div class="fork-box">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="fork-box"></div>
+            <div class="fork-box"></div>
+
+
+            <div class="fork three"></div>
+
+             <div class="cell three">
+                     <div id="controls_llploans" class = "trafficlights"></div>
+                <div class="header">Loan Loss Provisions (% Loans)</div>
+                <div id="llploans" class="graph1"></div>
+                </div>
+
+            <div class="cell threeblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+               </div>
+
+            <div class="cell three">
+                <div id="controls_loan_lease_mix1" class = "trafficlights"></div>
+                <div class="header">Loans Mix (% EA)</div>
+                <div id="loan_lease_mix1" class="graph1"></div>
+            </div>
+            <div></div>
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div class="fork four"></div>
+            </div>
+            <div class="fork-boxouter"></div>
+            <div></div>
+             <div class="cell four">
+                     <div id="controls_ncoloans" class = "trafficlights"></div>
+                <div class="header">Net Charge Offs (% Avg. Loans)</div>
+                <div id="ncoloans" class="graph1"></div>
+                </div>
+
+            <div class="cell four">
+                <div id="controls_llpnco" class = "trafficlights"></div>
+                <div class="header">Net Charge Offs (% Provisions)</div>
+                <div id="llpnco" class="graph1"></div>
+               </div>
+
+            <div class="cell fourblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+            <div class="cell fourblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div id="plus-nim-results">
+
+
+                 <div class="vertical-lineright"></div>
+                 <div class="fork twoskinny"></div>
+
+
+
+            <div class="cell two">
+                    <div id="controls_net_int_margin" class = "trafficlights"></div>
+                    <div class="header"> Net Interest Margin EA (%)</div>
+                    <div id="net_int_margin" class="graph1"></div>
+            </div>
+
+            <div class="cell two">
+                <div id="controls_EA_Mix" class = "trafficlights"></div>
+                <div class="header">Earning Asset (EA) Mix (%)</div>
+                <div id="EA_Mix" class="graph1"></div>
+            </div>
+
+            <div class="vertical-lineleft"></div>
+            <div class="fork three"></div>
+
+            <div class="cell three">
+                <div id="controls_gross_int_yield" class = "trafficlights"></div>
+                <div class="header"> Gross Interest Yield (% EA)</div>
+                <div id="gross_int_yield" class="graph1"></div>
+            </div>
+
+            <div class="cell threeblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="blank" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div id="controls_cost_of_funds_ea" class = "trafficlights"></div>
+                <div class="header">Interest Expense (% EA)</div>
+                <div id="cost_of_funds_ea" class="graph1"></div>
+            </div>
+
+            <div></div>
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div id="plus-grossintyield" blklab-click="expandgrossintyield"><img HR WIDTH="5%" HR HEIGHT="5%" src="/assets/images/plus.svg"></div>
+                <div id="minus-grossintyield" blklab-click="collapsegrossintyield"><img HR WIDTH="5%" HR HEIGHT=5%" src="/assets/images/minus.svg"></div>
+
+            </div>
+
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div id="plus-costoffunds" blklab-click="expandcostoffunds"><img HR WIDTH="5%" HR HEIGHT="5%" src="/assets/images/plus.svg"></div>
+                <div id="minus-costoffunds" blklab-click="collapsecostoffunds"><img HR WIDTH="5%" HR HEIGHT="5%" src="/assets/images/minus.svg"></div>
+            </div>
+
+            <div id="plus-grossintyield-results">
+            <div></div>
+
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+            </div>
+                <div class="fork-boxouter"></div>
+            <div class="fork three"></div>
+
+            <div></div>
+
+            <div class="cell three">
+                <div id="controls_int_yield_loans_wgt" class = "trafficlights"></div>
+                <div class="header"> Weighted Loan Yield (% EA) </div>
+                <div id="int_yield_loans_wgt" class="graph1"></div>
+            </div>
+
+
+
+            <div class="cell threeblank">
+                <div class="controls"></div>
+                <div class="header">&nbsp</div>
+                <div id="" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div id="controls_other_int_yield_wgt" class = "trafficlights"></div>
+                <div class="header">Weighted Other Yield (% EA)</div>
+                <div id="other_int_yield_wgt" class="graph1"></div>
+            </div>
+
+
+            <div></div>
+
+            <div class="fork-boxouter">
+                <div class="vertical-line"></div>
+                <div class="forkright"></div>
+            </div>
+
+
+
+            <div class="fork-boxouter">
+                <div class="vertical-lineleft"></div>
+                <div class="forkleft"></div>
+            </div>
+
+
+            <div></div>
+
+            <div class="cell three">
+                <div id="controls_loan_yield" class = "trafficlights"></div>
+                <div class="header"> Loan Yield (%) </div>
+                <div id="loan_yield" class="graph1"></div>
+            </div>
+
+
+
+            <div class="cell three">
+                <div id="controls_loan_lease_mix" class = "trafficlights"></div>
+                <div class="header">Loan Mix (%)</div>
+                <div id="loan_lease_mix" class="graph1"></div>
+            </div>
+
+            <div class="cell three">
+                <div id="controls_otherintyield" class = "trafficlights"></div>
+                <div class="header">Other EA Yield (%)</div>
+                <div id="otherintyield" class="graph1"></div>
+            </div>
+
+            </div>
+
+           <div id="plus-costoffunds-results">
+
+           <div></div>
+                <div class="fork-boxouter">
+                </div>
+
+           <div class="fork-boxouter">
+               <div class="vertical-line"></div>
+                   <div class="fork-boxouter">
+                    <div class="fork fourleft"></div></div>
+           </div>
+
+        <div></div>
+
+           <div class="cell threeblank">
+               <div class="controls"></div>
+               <div class="header">&nbsp</div>
+            <div id="" class="graph1"></div>
+           </div>
+
+
+           <div class="cell three">
+               <div id="controls_cost_of_funds" class = "trafficlights"></div>
+               <div class="header">Cost of Funds (%)</div>
+               <div id="cost_of_funds" class="graph1"></div>
+           </div>
+
+           <div class="cell three">
+               <div id="controls_ibl_ea_ratio" class = "trafficlights"></div>
+               <div class="header">Earning Assets / Funding (%)</div>
+            <div id="ibl_ea_ratio" class="graph1"></div>
+           </div>
+
+           <div></div>
+
+           <div class="vertical-line"></div>
+            <div class="fork three"></div>
+
+           <div></div>
+
+           <div class="cell three">
+               <div id="controls_cost_of_deposits_wgt" class = "trafficlights"></div>
+               <div class="header">Weighted Cost of Deposits (%)</div>
+               <div id="cost_of_deposits_wgt" class="graph1"></div>
+           </div>
+
+           <div class="cell threeblank">
+               <div class="controls"></div>
+               <div class="header">&nbsp</div>
+               <div id="t" class="graph1"></div>
+           </div>
+
+
+           <div class="cell three">
+               <div id="controls_cost_of_other_borrowings_wgt" class = "trafficlights"></div>
+               <div class="header">Weighted Cost of Other Funds (%)</div>
+            <div id="cost_of_other_borrowings_wgt" class="graph1"></div>
+           </div>
+
+           <div></div>
+
+           <div class="fork-boxouter">
+               <div class="vertical-line"></div>
+               <div class="fork-boxouter">
+               <div class="fork fourright"></div></div>
+           </div>
+
+           <div class="fork-boxouter">
+               <div class="vertical-line"></div>
+                   <div class="fork-boxouter">
+                    <div class="fork fourleft"></div></div>
+           </div>
+
+
+           <div></div>
+
+           <div class="cell three">
+               <div id="controls_cost_of_deposits" class = "trafficlights"></div>
+               <div class="header">Cost of Deposits</div>
+               <div id="cost_of_deposits" class="graph1"></div>
+           </div>
+
+           <div class="cell three">
+               <div id="controls_deposit_mix" class = "trafficlights"></div>
+               <div class="header">Deposits Mix (% of funds)</div>
+               <div id="deposit_mix" class="graph1"></div>
+           </div>
+
+           <div class="cell three">
+               <div id="controls_cost_of_other_funds" class = "trafficlights"></div>
+               <div class="header">Cost of Other Funds (%)</div>
+            <div id="cost_of_other_funds" class="graph1"></div>
+           </div>
+
+           <div></div>
+
+
+
+
+
+
+
+
+           </div>
+
+            </div>
+
+
+            </div>
+
+
+            </section>
+        </div>
+
+    </section>
+</section>

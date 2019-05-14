@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Test Requests</title>
+        <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <style>
+            body{
+                font-family:'Open Sans';
+                margin:0px;
+                padding:0px;
+                color:#272727;
+                background:#c7c7c7;
+            }
+
+            input, textarea, select{
+                font-family:'Open Sans';
+                font-size:18px;
+                background:#d7d7d7;
+                border:solid 2px #a7a7a7;
+                padding:5px;
+                width:100%;
+                border-radius:4px;
+                margin-bottom:5px;
+            }
+
+            input.key, input.val{
+                width:40%;
+                display:inline-block;
+            }
+
+            select{
+                font-size: 18px;
+                border:solid 2px #a7a7a7;
+                border-radius:4px;
+                color:#272727;
+                padding: 5px 35px 5px 5px;
+                width: auto;
+                -webkit-appearance: none;
+                background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>") right no-repeat;
+                background-color:#d7d7d7;
+                background-transparency: 0.5;
+                background-position: right 5px top 8px;
+                background-size: 18px 18px;
+            }
+
+            select:active{
+                outline:inherit;
+            }
+
+            input[type="button"],input[type="submit"]{
+                padding:4px 10px;
+                font-size:16px;
+                font-family:'Arvo';
+                font-weight:400;
+                text-transform:uppercase;
+                background:#31c98a;
+                border:#dddddd;
+                color:white;
+                cursor:pointer;
+                width:auto;
+                opacity:.8;
+                border-radius:4px;
+                -webkit-appearance: none;
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                -o-transition: all 0.2s ease-out;
+                -ms-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+            }
+
+            input[type="button"]:hover{
+                opacity:1;
+            }
+
+            select{
+                width:auto;
+            }
+
+            h1,h2,h3{
+                font-family:'Arvo';
+                font-weight:700;
+                text-transform:uppercase;
+            }
+
+            h1{
+                width:100%;
+                text-align:center;
+                padding:20px;
+                margin:0px;
+                background:#2c2a27;
+                color:#c7c7c7;
+            }
+
+            section.wrapper{
+                padding:20px;
+                width:30%;
+                margin:0px auto;
+            }
+
+            #message{
+                color:#ca3068;
+                font-family:'Arvo';
+                font-weight:400;
+                text-transform:lowercase;
+            }
+
+            #response{
+                padding:20px 1%;
+                border:solid 1px #b7b7b7;
+                border-radius:4px;
+                width:100%;
+            }
+
+            #response span{
+                display:block;
+                cursor:pointer;
+                width:100%;
+                border-bottom:solid 1px black;
+            }
+
+            #response span:hover{
+                background-color:#ff39de;
+            }
+
+            #response span h3{
+                text-transform:lowercase;
+            }
+
+            .delete, #add_new_pair{
+                cursor:pointer;
+                font-size:16px;
+                font-family:'Arvo';
+                margin-right:20px;
+            }
+
+            @media only screen and (max-device-width: 1024px) {
+                section.wrapper{
+                    padding:20px;
+                    width:50%;
+                    margin:0px auto;
+                }
+            }
+        </style>
+        <script>
+
+            function loadMessage(id){
+                var response = document.getElementById('msg')
+                response.src = '/api/mail/' + id
+            }
+
+            function testCall(){
+                var vals = document.querySelectorAll('.payload_row');
+				var p = document.querySelector('#payload');
+                if(p){
+                    p = JSON.stringify(p.value);   
+                }else{
+                    p = '';   
+                }
+                var len = vals.length;
+                var i;
+				if(!p){
+					var payload = {};
+					for(i=0;i<len;i++){
+						var obj = vals[i];
+						var key = obj.querySelector('.key').value;
+						var val = obj.querySelector('.val').value;
+						payload[key] = val;
+					}
+
+					payload = JSON.stringify(payload);
+				}else{
+					payload = p;
+				}
+
+                var response = document.getElementById('message')
+                response.innerHTML = "Loading...";
+
+                document.getElementById('progress').style.width = '0px';
+                var method = document.getElementById('method').value;
+                var path = document.getElementById('path').value;
+				var auth = document.getElementById('auth').value;
+                var oReq = new XMLHttpRequest();
+                //oReq.responseType = "json";
+                if(method != 'DELETE'){
+                    oReq.open(method, path, true);
+                }else{
+                    oReq.open(method, path, false);
+                }
+                oReq.setRequestHeader("Content-type", 'application/json');//"application/x-www-form-urlencoded")
+				oReq.setRequestHeader('x-access-token', auth);
+                oReq.onload = function(e) {
+                    var s = oReq.responseText;
+                    document.getElementById('response').innerHTML = JSON.stringify(JSON.parse(s), null, '\t');
+                }
+
+                oReq.addEventListener("progress", updateProgress, false);
+                oReq.addEventListener("load", transferComplete, false);
+                oReq.addEventListener("error", transferFailed, false);
+                oReq.addEventListener("abort", transferCanceled, false);
+
+                if(method == 'GET'){
+                    oReq.send();
+                }else{
+                    oReq.send(payload);
+                }
+            }
+
+            function updateProgress (oEvent) {
+                var response = document.getElementById('progress')
+                if (oEvent.lengthComputable) {
+                    var percentComplete = oEvent.loaded / oEvent.total;
+                    response.style.width = 400 * percentComplete + 'px';
+                }
+            }
+
+            function transferComplete(evt) {
+                var response = document.getElementById('message')
+                response.innerHTML = "Finished Loading.";
+            }
+
+            function transferFailed(evt) {
+                var response = document.getElementById('message')
+                response.innerHTML = "An error occurred while transferring the file.";
+            }
+
+            function transferCanceled(evt) {
+                var response = document.getElementById('message')
+                response.innerHTML = "The transfer has been canceled by the user.";
+            }
+
+            function addNewPair(){
+                var doc = document.createElement('div');
+                doc.className = 'payload_row';
+                var html = '<input type="text" class="key" placeholder="Key" onblur="slugify(this, this.value)"> <input type="text" class="val" placeholder="Value"> <span class="delete" onclick="removePair(event)">-</span>';
+                doc.innerHTML = html;
+                var cont = document.getElementById('payload_container');
+                cont.appendChild(doc);
+
+                var key = doc.querySelector('.key');
+                key.focus();
+            }
+
+            function removePair(e){
+                e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+            }
+
+            function clearAll(){
+                var cont = document.getElementById('payload_container');
+                cont.innerHTML = '';
+                var doc = document.createElement('div');
+                doc.className = 'payload_row';
+                var html = '<input type="text" class="key" placeholder="Key" onblur="slugify(this, this.value)"> <input type="text" class="val" placeholder="Value">';
+                doc.innerHTML = html;
+                cont.appendChild(doc);
+            }
+
+            function slugify(obj, text) {
+                obj.value =  text.toString().toLowerCase()
+                .replace(/\s+/g, '-')        // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')   // Remove all non-word chars
+                .replace(/\-\-+/g, '-')      // Replace multiple - with single -
+                .replace(/^-+/, '')          // Trim - from start of text
+                .replace(/-+$/, '');         // Trim - from end of text
+            }
+
+            function changeURL(addon){
+                var obj = document.getElementById('path');
+                var base = obj.getAttribute('data-base');
+                path.value = base + addon;
+            }
+
+            function upload(e){
+                //var files = e.target.parentNode.files;
+
+                var response = document.getElementById('message')
+                response.innerHTML = "Loading...";
+
+                var oReq = new XMLHttpRequest();
+                //oReq.responseType = "json";
+
+                var form_data = new FormData(e.parentNode);
+                oReq.open('POST', 'http://imageprocessor/images/upload', true);
+                oReq.addEventListener("progress", updateProgress, false);
+                oReq.addEventListener("load", transferComplete, false);
+                oReq.addEventListener("error", transferFailed, false);
+                oReq.addEventListener("abort", transferCanceled, false);
+                oReq.send(form_data);
+            }
+
+            window.onload = function(){
+                var obj = document.getElementById('path');
+                path.value = '/api/'//location.origin + '/';
+                path.setAttribute('data-base', path.value);
+
+                document.documentElement.addEventListener('keydown', function(event){
+                    if(event.ctrlKey && event.keyCode == 13) {
+                        addNewPair();
+                    }else if(event.keyCode == 13){
+                        testCall();
+                    }
+
+                    if(event.ctrlKey && event.keyCode == 8) {
+                        var rows = document.querySelectorAll('.payload_row');
+                        var row = rows[rows.length - 1];
+                        row.parentNode.removeChild(row);
+                    }
+                }, false);
+            }
+        </script>
+    </head>
+    <body>
+
+        <h1>API Test Requests</h1>
+        <section class="wrapper">
+            <select id="method">
+                <option value="GET">Get</option>
+                <option value="POST">Create</option>
+                <option value="PUT">Update</option>
+                <option value="DELETE">Delete</option>
+            </select>
+            <br>
+            <select onchange="changeURL(this.value)">
+                <option value=""></option>
+                <option value="students">Students</option>
+                <option value="professors">Professors</option>
+                <option value="projects">Projects</option>
+                <option value="jobs">Jobs</option>
+            </select>
+            <br>
+            <input type="text" id="path" value="">
+            <br>
+			<input type="text" id="auth" value="eyJhbGciOiJIUzI1NiJ9.YmFpcmRAbGFja25lci1idWNraW5naGFtLmVkdTE0NDE1ODIxOTIyMzY.I-nBHUujF2Aa_eqrRdoWjM0RYqVHBNVpjx0hjgNlJYU" placeholder="Token">
+            <!--<textarea id="payload" style="height:150px;">
+                {
+                    "type":"research",
+                    "name":"ANALYZING THE EFFECTS OF DOPAMINE ON MICE",
+                    "description":"Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.",
+                    "audience":"public",
+                    "published":null,
+                    "tags":null,
+                    "jobs":[
+                        {"skills":"Python, Analysis, Project Management","compensation":"Co-Authorship","description":"Read stuff","degree":"Economics","type":"part-time","title":"Proofreading",
+                        {"skills":"Programming, Analysis, Python","compensation":"Paid","description":"Code stuff","degree":"CS","type":"full-time","title":"Data Analysis","last":""}
+                    ],
+                    "university":null
+                }
+            </textarea>-->
+
+            <div id="payload_container">
+                <div class="payload_row">
+                    <input type="text" class="key" placeholder="Key" autofocus onblur="slugify(this, this.value)"> <input type="text" class="val" placeholder="Value">
+                </div>
+            </div>
+            <span id="add_new_pair" onclick="addNewPair()">+</span> <span class="delete" onclick="clearAll()">x</span>
+            <br>
+
+            <br>
+
+            <input type="button" onclick="testCall()" value="Submit">
+
+            <h2 id="message"></h2>
+
+            <div id="response"></div>
+
+            <div id="progress"></div>
+
+            <br><br>
+
+            <form method="post" action="http://imageprocessor/images/upload" enctype="multipart/form-data">
+                <label>File</label>
+                <input type="file" name="file" multiple>
+                <label>Title</label>
+                <input type="text" name="title">
+                <label>Caption</label>
+                <input type="text" name="caption">
+                <input type="button" value="Upload" onclick="upload(this)">
+            </form>
+
+        </section>
+    </body>
+</html>
+

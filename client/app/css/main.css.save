@@ -1,0 +1,2236 @@
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-webkit-keyframes animateArticle {
+  from {
+    top: -100%; }
+  to {
+    top: 0; } }
+
+@keyframes animateArticle {
+  from {
+    top: -100%; }
+  to {
+    top: 0; } }
+
+@-webkit-keyframes animateArticleOut {
+  from {
+    top: 0; }
+  to {
+    top: -100%; } }
+
+@keyframes animateArticleOut {
+  from {
+    top: 0; }
+  to {
+    top: -100%; } }
+
+/* line 21, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 23, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* line 28, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fade {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1s;
+  animation: fadeIn ease-in 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+/* line 36, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.out {
+  opacity: 0;
+  -webkit-animation: fadeOut ease-in 1s;
+  animation: fadeOut ease-in 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+/* line 44, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.trans-in {
+  top: -100%;
+  -webkit-animation: animateArticle ease-out 0.75s;
+  animation: animateArticle ease-out 0.75s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+/* line 52, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.trans-out {
+  top: 0;
+  -webkit-animation: animateArticleOut ease-out 0.75s;
+  animation: animateArticleOut ease-out 0.75s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+/* line 60, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+body, html {
+  height: 100%; }
+
+/* line 64, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+body {
+  background: #f9f8f6;
+  color: #121314;
+  line-height: 1em;
+  font-size: 14px;
+  font-family: "proxima-nova", sans-serif;
+  height: 100%;
+  overflow-x: hidden; }
+
+/* line 74, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+a {
+  text-decoration: none;
+  color: #7a7a7a;
+  font-family: "proxima-nova", sans-serif; }
+
+/* line 80, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+p {
+  line-height: 1.2em;
+  max-width: 100%;
+  margin: 0 0 1em;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 14px; }
+
+/* line 88, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+h1 {
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  letter-spacing: 0.1em; }
+
+/* line 94, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+h2 {
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  margin-bottom: 0;
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  font-weight: bold; }
+
+/* line 102, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+h3 {
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  margin-bottom: 5px; }
+
+/* line 109, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+  font-family: "proxima-nova-extra-condensed", sans-serif; }
+
+/* line 116, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+select, option {
+  font-family: "proxima-nova", sans-serif; }
+
+/* line 120, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top {
+  height: 100px;
+  background: transparent url(/app/assets/images/header-repeat.jpg) repeat-x top; }
+
+/* line 125, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top #left {
+  width: 376px;
+  height: 100px;
+  background: transparent url(/app/assets/images/header-left.jpg) no-repeat top; }
+
+/* line 131, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top #left img {
+  margin-left: 12px; }
+
+/* line 135, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top aside {
+  width: 150px;
+  position: absolute;
+  right: 20px;
+  top: 10px; }
+
+/* line 142, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top aside ul {
+  list-style: none; }
+
+/* line 146, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top aside ul li {
+  display: inline-block;
+  font-size: 11px;
+  color: #ffffff;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: lighter;
+  padding: 0 2px;}
+
+/* line 154, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top aside ul li a {
+  color: #ffffff; }
+
+/* line 158, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav {
+  width: 620px;
+  position: absolute;
+  right: 0px;
+  top: 68px;
+  display: none;
+   }
+
+@media screen and (min-width:1101px){
+   header#top nav {
+        display:block;
+    }
+}
+
+header#top .menu {
+  position: absolute;
+  right: 65px;
+  top: 44px;
+  display: none;
+}
+
+@media screen and (max-width:1100px){
+   header#top .menu {
+        display:block;
+        width: 32px;
+        height:32px;
+        padding-top: -32px;
+    }
+}
+
+header#top .iphonemenu nav {
+position: absolute;
+float: right;
+right: 50px;
+top: 330px;
+width: 414px;
+float: top;
+z-index: 998;
+display: none;
+}
+
+@media screen and (max-width:1100px){
+   header#top .iphonemenu nav {
+        display:none;
+    }
+}
+
+header#top .iphonemenu li {
+display: block;
+text-align: left;
+background: lightgray;
+border-bottom: 1px solid darkgray;
+padding-left: 10px;
+height: 50px;
+width: 414px;
+}
+
+header#top .iphonemenu a li {
+color: black;
+vertical-align: middle;
+}
+
+/* line 184, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top .iphonement ul li.selected, header#top .iphonemenu ul li:hover {
+  background: darkgray; }
+
+/* line 184, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top .iphonement ul li.selected a, header#top .iphonemenu ul a li:hover{
+  color: black; }
+
+/* line 165, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav ul {
+  text-align: right;
+  padding: 0; }
+
+/* line 170, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav ul li {
+  box-sizing: border-box;
+  padding: 10px 0 26px; }
+
+/* line 175, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav ul li a {
+  color: #fff;
+  font-family: "proxima-nova", sans-serif; }
+
+/* line 180, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav ul li.selected a, header#top nav ul li:hover a {
+  color: #61c3fc; }
+
+/* line 184, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+header#top nav ul li.selected, header#top nav ul li:hover {
+  background: transparent url(/app/assets/images/nav-arrow.jpg) no-repeat center 42px; }
+
+/* line 188, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero {
+  background: transparent url(/app/assets/images/home-fpo.jpg) top;
+  background-size: 100%;
+  min-height: 250px;
+  width: 100%;
+  margin-bottom: 0px;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 115px; }
+
+section#whatwedo {
+  background-size: cover;
+  width: 100%;
+  min-height: 190px;
+  margin-bottom: 0px;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 20px; }
+
+/* line 198, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero h1 {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 1em;
+ }
+
+  /* line 198, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero h2 {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 1em;
+     }
+
+/* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 40px;
+  bottom: 25px; }
+
+/* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .text1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 25px; }
+
+section#whatwedo .whatwedo {
+  width: 100%;
+  text-align: left;
+  min-height: 170px;
+  vertical-align: middle;
+  padding: 0px 10px 10px 15px;
+  overflow: scroll;
+}
+
+/* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedoimage {
+  float: left;
+  width: 10%;
+  text-align: left;
+  vertical-align:middle;
+  padding: 10px 0px 0px 0px; }
+
+/* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedoimage1 {
+  float: left;
+  width: 8%;
+  text-align: left;
+  vertical-align:middle;
+  padding: 20px 0px 0px 0px; }
+
+/* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedotext{
+  display: inline-block;
+  width: 90%;
+  text-align: left;
+  padding: 10px 10px 0px 15px;
+  overflow: scroll;}
+
+  /* line 209, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedotext1{
+  position: absolute;
+  top: 7.5%;
+  left: 10%;
+  width: 90%;
+  height: 220px;
+  overflow: scroll;
+  text-align: left;
+  vertical-align: middle;
+  padding: 5px 10px 10px 15px;
+  overflow: scroll; }
+
+
+/* line 216, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedo h2.title {
+  display: inline-block;
+  text-transform: uppercase;
+  width: 33%;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px 0px 0px 0px;  }
+
+
+/* line 227, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .whatwedo p.sub-title {
+  text-align: left;
+  font-size: 16px;
+  padding: 5px 10px 0px 0px;
+  -webkit-hyphens: manual !important;
+  -moz-hyphens: manual !important;
+  -ms-hyphens: manual !important;
+  hyphens: manual !important;
+  }
+
+  /* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#whatwedo .galleryholder {
+  margin: 0 auto;
+  width: 60px;
+  horizontal-align: center;
+  padding: 5px 0px 0px 0px;
+  }
+
+section#whatwedo .circlegallery {
+  display:inline-block;
+  text-align: center;
+  width: 15px;
+  height: 15px; }
+
+
+/* line 227, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .text p.sub-title {
+  text-align: center;
+  bottom: 15px;  }
+
+/* line 216, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .text h1 {
+  text-align: center; }
+
+/* line 220, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero p.sub-title {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+
+  margin: 0 auto; }
+
+/* line 227, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .text p.sub-title {
+  text-align: center;
+  bottom: 15px;  }
+
+/* line 231, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay {
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  bottom: -30px;
+  height: 30px;
+  width: 100%;
+  min-width: 800px;
+  padding-bottom: 10px; }
+
+@media screen and (max-width:1100px){
+   section#hero .overlay {
+        display:none;
+    }
+}
+
+/* line 239, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner {
+  width: 100%;
+  padding-left: 12px;
+
+  margin: 0 auto;
+  max-width: 100%; }
+
+/* line 245, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner ul {
+  list-style: none;
+  margin: 5px 0 5px;
+  padding: 0; }
+
+/* line 251, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner p {
+  margin-top: 0; }
+
+/* line 255, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-right: 10px;
+  font-weight: bold;
+  letter-spacing: 0.01em; }
+
+/* line 266, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner ul li a {
+  color: #000; }
+
+/* line 270, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#hero .overlay .inner ul li.selected a, section#hero .overlay .inner ul li:hover a {
+  color: #1e7ef3; }
+
+/* line 274, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home {
+  text-align: center;
+  width: 100%;
+  }
+
+/* line 278, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .row {
+  border-top: 1px dotted lightblue;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  vertical-align: middle;
+  width: 98%;
+  min-height: 110px;
+  margin: 0px auto 10px 0px;
+  background: white;}
+
+  /* line 282, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .rowcellholder {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);}
+
+  /* line 282, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .rowcell {
+
+  display: inline-block;
+  width: 49%;
+  min-width: 470px;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 10px;}
+
+    /* line 282, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .rowcellbank {
+
+  display: inline-block;
+  left: 0px;
+  width: 49%;
+  min-width: 470px;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-left: 0px;
+  background: #ececec;}
+
+/* line 282, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .cell {
+  display: inline-block;
+  padding-top: 5px;
+  font-size: 16px;
+  text-align: center;
+  width: 20%;
+  vertical-align: middle; }
+
+section#main.home .explanation {
+  display: inline-block;
+  padding-top: 0px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+  width: 78%;
+  margin-left: 0px;
+  }
+
+  /* line 363, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#section#main .rowcellbank .filters .col {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 0px;
+  border: 1px solid black;
+  }
+
+/* line 370, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#section#main .rowcellbank .filters .col .select {
+  display: inline;
+  width: 90%;
+  max-width: 100%;
+  border: 0 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: 82px 7px;
+  height: 20px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  color: #000;
+  padding: 8px 10px;
+  background: #fff url(/assets/images/down-arrow.png) no-repeat 370px 6px; }
+
+
+/* line 363, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.buttondiv {
+  display: inline-block;
+  width: 100px;
+  background: none;
+  text-align: center;
+  padding-top: 45px;
+  }
+
+.buttondiv .button{
+  height: 20px;
+  }
+
+/* line 384, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .rowcellbank h3 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-left: 5px;}
+
+/* line 384, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .rowcell h3 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-left: 5px;}
+
+/* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .circle {
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #1865c2;
+  position: relative; }
+
+/* line 298, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .circle img {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  left: 50%;
+  top: 50%;
+  margin: -22px 0 0 -22px; }
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .circle.light {
+  background: #1e7ef3; }
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .analyzericon {
+  display: inline-block;
+  width: 12%;
+  height: 12%;
+ }
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .analyzericon img {
+ padding-left: 10px;
+}
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .analyzerheader {
+ display: inline-block;
+ padding-left: 20px;
+ padding-top: 15px;
+ vertical-align: top;
+ width: 84%;
+}
+
+
+/* line 309, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .cell h3 {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: -15px;
+  margin-bottom: -15px;
+  text-transform: uppercase; }
+
+/* line 316, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+section#main.home .cell h3 a {
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  color: #000; }
+
+/* line 321, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#main.detailed-metrics {
+  min-height: 850px; }
+
+/* line 325, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#more {
+  height: 500px;
+  position: relative; }
+
+/* line 330, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspective-overview {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+  height: 500px;
+  background: #f5f5f5; }
+
+/* line 338, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#signup-box {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+  background: #ececec;
+  height: 500px; }
+
+/* line 346, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspective-overview .content, #signup-box .content {
+  text-align: right;
+  width: 504px; }
+
+/* line 351, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.divider {
+  margin: 0px auto 0px;
+  width: 100%;
+  height: 10px;
+  border: none; }
+
+/* line 357, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters {
+  width: 100%;
+  max-width: 98%;
+  margin: 20px auto 25px; }
+
+
+
+/* line 363, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .col {
+  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 20px; }
+
+#filters .col .segment_image{
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid darkgray;
+  position: relative;
+  top: -30px;
+  left: 165px;
+ }
+  
+ #filters .col .segment_image img { 
+  margin-top: 2px;
+  margin-left: 1px; 
+} 
+
+.arrow_box {
+ border: 4px solid darkgray;
+ max-height: 515px;
+ width: 500px;
+ position: absolute;
+ float: right;
+ top: -30px;
+ left: 46px;
+ z-index:998;
+ background: #f5f5f5;
+ padding:10px 10px 10px 10px;
+ display: none;
+ }
+
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 35px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #f5f5f5;
+	border-width: 12px;
+	margin-top: -12px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: darkgray;
+	border-width: 18px;
+	margin-top: -18px;
+}
+
+.arrow_box .arrow_box_contents {
+	width: 100%;
+	max-height: 495px;
+	overflow: scroll;
+}
+
+ #filters .col .segment_image img {
+  margin-top: 2px;
+  margin-left: 1px;
+}
+
+.peerSet {
+ border: 1px solid black;
+ height: 100px;
+ width: 100px;
+ position: absolute;
+ float: right;
+ top: -30px;
+ left: 30px;
+ z-index:998;
+ background: yellow;
+ }
+
+
+
+  /* line 363, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .colhidden {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left; }
+
+/* line 370, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .col select {
+  width: 400px;
+  max-width: 100%;
+  border: 0 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: 82px 7px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  color: #000;
+  padding: 8px 10px;
+  background: #fff url(/assets/images/down-arrow.png) no-repeat 370px 6px; }
+
+.segment {
+ padding: 8px 10px;
+ }
+
+
+/* line 384, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .col h3 {
+  font-size: 16px;
+  font-weight: bold;
+  width: 400px;
+  position: relative; }
+
+/* line 391, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .col h3 img {
+  position: absolute;
+  right: 0;
+  top: -10px; }
+
+/* line 397, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .premium {
+  border-top: solid 10px #1e7ef3;
+  height: 62px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 10px 0 0 30px; }
+
+/* line 405, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#filters .premium img {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 15px; }
+
+/* line 411, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data {
+  font-size: 16px;
+  width: 100%;
+  max-width: 98%;
+  margin: 5px auto;
+  min-height: 700px; }
+
+/* line 418, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.block {
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: top;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  min-height: 200px; }
+
+/* line 426, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.block.auto {
+font-size: 16px;
+  min-height: 50px; }
+
+/* line 430, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.single {
+  font-size: 16px;
+  width: 18.4%;
+  min-width: 120px;
+  text-align: left; }
+
+/* line 435, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.double {
+  font-size: 16px;
+  width: 36.4%;
+  min-width: 240px;
+  margin-left: 4%;
+  text-align: left; }
+
+/* line 441, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.full {
+
+  font-size: 16px;
+  width: 100%;
+  min-width: 700px;
+  margin-left: 0;
+  text-align: left; }
+
+/* line 447, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart-holder {
+  border-top: solid 8px #c1c5c8;
+  background: #f3f3f3;
+  padding: 2px;
+  box-sizing: border-box;
+  cursor: pointer; }
+
+/* line 455, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.block header {
+  box-sizing: border-box;
+  padding: 8px 25px;
+  background: #fff url(/app/assets/images/header-arrow.jpg) no-repeat left center;
+  margin-bottom: 5px; }
+
+/* line 462, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.block .detail {
+  padding: 8px 25px;
+  background: #fff;
+  min-height: 100px; }
+
+/* line 468, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.block #outcomes {
+  max-height: 55px;
+  min-height: 55px;
+  height: 55px; }
+
+/* line 474, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart {
+  min-width: 120px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  position: relative; }
+
+/* line 481, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart .overlay {
+  width: 75%;
+  position: absolute;
+  left: 11%;
+  top: 45%;
+  text-align: center; }
+
+/* line 489, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart .overlay .value {
+  font-size: 50px;
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  margin: 0;
+  line-height: 1em; }
+
+/* line 496, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart .overlay .perc {
+  font-size: 20px;
+  font-family: "proxima-nova-extra-condensed", sans-serif;
+  margin: 0;
+  line-height: 1em; }
+
+/* line 503, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.chart h3 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  padding-top: 5px; }
+
+/* line 511, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.full .chart {
+  width: 20%;
+  white-space: normal; }
+
+/* line 516, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.double .chart {
+  width: 50%;
+  white-space: normal; }
+
+/* line 521, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.single .chart {
+  width: 100%;
+  white-space: normal; }
+
+/* line 521, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.graph {
+  width: 100% !important;
+  height: 100% !important;;
+  }
+
+
+/* line 526, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table {
+  border-top: solid 10px #c1c5c7; }
+
+/* line 530, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table tr th {
+  background: #e6e6e6;
+  padding: 5px 0;
+  color: #444444; }
+
+/* line 536, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling {
+  width: 100%; }
+
+/* line 540, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling tr th {
+  width: 2%;
+  color: #444444; }
+
+/* line 545, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.avg {
+  width: 20%;
+  float: right; }
+
+/* line 550, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.avg tr th {
+  width: 50%;
+  font-family: "proxima-nova", sans-serif; }
+
+/* line 555, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+table tr th, table tr td {
+  font-family: "proxima-nova", sans-serif;
+  padding: 3px 0 3px 0; }
+
+/* line 560, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling tr td:first-child {
+  padding-left: 15px; }
+
+/* line 564, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling tr:hover, #data table.rolling tr.selected {
+  background: #FFFFCC; }
+
+/* line 568, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling tr td:first-child, #data table.rolling tr td:first-child {
+  font-weight: normal; }
+
+/* line 572, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data table.rolling tr:hover td:first-child, #data table.rolling tr.selected td:first-child {
+  background: #FFFFCC url(/assets/images/highlight-arrow.jpg) no-repeat left center; }
+
+/* line 576, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspectives {
+  padding: 50px 0 25px; }
+
+/* line 580, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspectives h1 {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 1em; }
+
+/* line 586, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspectives p {
+  margin-bottom: 20px; }
+
+/* line 590, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#perspectives h2 {
+  margin-top: 50px;
+  font-size: 16px; }
+
+/* line 595, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.posts {
+  min-height: 600px;
+  width: 95%;
+  padding-left: 25px;
+  padding-top: 30px;
+  font-size: 20pt; }
+
+/* line 599, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.divider-full {
+  border-top: dotted 1px #000;
+  margin: 10px auto;
+  width: 100%; }
+
+/* line 605, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+footer {
+  background: transparent url(/app/assets/images/footer.jpg) no-repeat center;
+  height: 206px; }
+
+/* line 610, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.clear {
+  clear: both; }
+
+/* line 614, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.inner {
+  width: 100%;
+  margin: 0px auto; }
+
+/* line 619, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder {
+  position: absolute;
+  position: fixed;
+  width: 96%;
+  min-width: 850px;
+  height: 96%;
+  left: 2%;
+  top: 2%;
+  background: #e6e6e6;
+  display: none;
+  box-sizing: border-box; }
+
+/* line 631, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder .container {
+  padding: 10px;
+  box-sizing: border-box;
+  height: calc(100% - 50px);
+  overflow: auto; }
+
+/* line 638, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder header {
+  background: transparent url(/app/assets/images/pop-upcharts-header-repeat.png) repeat-x top;
+  height: 50px;
+  position: relative; }
+
+/* line 644, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder header .inner {
+  max-width: 1402px;
+  width: 100%;
+  background: transparent url(/app/assets/images/pop-upcharts-header.png) no-repeat top left;
+  color: #fff;
+  position: relative;
+  margin: 0; }
+
+/* line 653, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder header .inner h2 {
+  color: #fff;
+  margin: 0;
+  padding: 15px 0 0 10px; }
+
+/* line 659, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chart-holder header #close {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase; }
+
+/* line 668, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.left-graphs {
+  width: 53%;
+  display: inline-block;
+  margin-right: 2%;
+  height: calc(100% - 65px);
+  vertical-align: top; }
+
+/* line 676, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.right-graphs {
+  width: 43%;
+  display: inline-block;
+  height: calc(100% - 65px);
+  vertical-align: top; }
+
+/* line 683, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chartdiv {
+  width: 100%;
+  height: 48%;
+  position: relative;
+  margin-bottom: 10px; }
+
+.amcharts-graph-median .amcharts-graph-stroke {
+  stroke-dasharray: 3px 3px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  -webkit-animation: am-moving-dashes 1s linear infinite;
+  animation: am-moving-dashes 1s linear infinite;
+}
+
+@-webkit-keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+@keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+
+/* line 690, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#xydiv {
+  width: 100%;
+  height: 48%;
+  position: relative;
+  margin-bottom: 10px; }
+
+
+.lastBullet {
+  -webkit-animation: am-pulsating 2s ease-out infinite;
+  animation: am-pulsating 2s ease-out infinite;
+}
+@-webkit-keyframes am-pulsating {
+  0% {
+    stroke-opacity: .7;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 10px;
+  }
+}
+@keyframes am-pulsating {
+  0% {
+    stroke-opacity: .7;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 10px;
+  }
+}
+
+/* line 697, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#spiderdiv {
+  width: 100%;
+  height: 48%;
+  position: relative;
+  background: #fff;
+  margin-bottom: 10px; }
+
+/* line 705, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#bardiv {
+  width: 100%;
+  height: calc(96% + 15px);
+  position: relative; }
+
+/* line 711, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#segment_metrics tr {
+  cursor: pointer; }
+
+/* line 715, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.holder {
+  border: solid 1px #cccccc;
+  min-width: 800px;
+  background: #fff; }
+
+/* line 721, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+table {
+  margin-bottom: 2px;
+
+  font-size: 14px; }
+
+/* line 725, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#chartdiv, #bardiv, #xydiv {
+  background: #fff; }
+
+/* line 729, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail {
+  background: #e6e6e6;
+  padding: 80px 20px;
+  position: relative; }
+
+/* line 735, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail table {
+  border: none;
+  font-family: "proxima-nova", sans-serif; }
+
+/* line 740, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail table tr td, #simulation-detail table tr td div {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: bold;
+  font-size: 12px; }
+
+/* line 746, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#data.sim .block {
+  margin-bottom: 15px; }
+
+/* line 751, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .col {
+  width: 24%;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+  padding: 20px 0; }
+
+/* line 758, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .col label, #outcomes .col label {
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: normal; }
+
+/* line 765, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#outcomes .col label {
+  padding: 10px 0 10px 10px;
+  display: inline-block;
+  /* vertical-align: top;  */
+  }
+
+/* line 771, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#outcomes .col span img {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  padding: 0 5px;
+  font-weight: normal;  }
+
+/* line 779, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .col input {
+  width: 77%;
+  font-weight: normal;  }
+
+/* line 779, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.simulation {
+  display: inline-block;
+  padding: 0 5px;
+  font-weight: normal;  }
+
+/* line 784, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 22px;
+  width: 25px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 0; }
+
+/* All the same stuff for Firefox */
+/* line 795, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+input[type=range]::-moz-range-thumb {
+  border: none;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  background: Gray;
+  cursor: pointer;
+  border-radius: 0; }
+
+/* All the same stuff for IE */
+/* line 805, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 22px;
+  width: 25px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 0; }
+
+.sticky {
+        margin-top: 0 !important;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 10000;
+     background: #fff;
+     border-radius: 0%;
+     border-top: 10px solid #1e7ef3;
+
+     /*box-sizing: border-box;
+       padding: 8px 25px;
+       background: #fff url(/app/assets/images/header-arrow.jpg) no-repeat left center;
+       margin-bottom: 0px;
+       border-top: dotted 1px #000;
+       width: 100%; */
+  }
+
+/* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-line {
+  height: 20px;
+  width: 1px;
+  background: #1865c2;
+  margin: auto; }
+
+  /* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-linegraph {
+  height: 186px;
+  width: 1px;
+  background: #1865c2; }
+
+/* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-lineright {
+  height: 20px;
+  width: 27.5%;
+  margin: auto;
+  border-right: solid 1px #1865c2; }
+
+/* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-linewideright {
+  height: 20px;
+  width: 55%;
+  margin: auto;
+  border-right: solid 1px #1865c2; }
+
+  /* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-linefarright {
+  height: 20px;
+  width: 100%;
+  margin: auto;
+  border-right: solid 1px #1865c2; }
+
+  /* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-lineleft {
+  height: 20px;
+  width: 27.5%;
+  margin: auto;
+  border-left: solid 1px #1865c2; }
+
+  /* line 814, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-lineskinny {
+  height: 20px;
+  width: 55%;
+  margin: auto;
+  border-right: solid 1px #1865c2;
+  border-left: solid 1px #1865c2; }
+
+/* line 822, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-line.first {
+  position: relative;
+  left: -185px; }
+
+  /* line 822, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.vertical-line.firstleft {
+  position: relative;
+  left: -27.5%; }
+
+/* line 827, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork {
+  width: 320px;
+  margin: 0 auto;
+  border-top: solid 1px #1865c2;
+  height: 20px;
+  border-left: solid 1px #1865c2;
+  border-right: solid 1px #1865c2; }
+
+  /* line 827, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.forkright {
+  width: 30%;
+  position: relative;
+  left: 50%;
+  border-top: solid 1px #1865c2;
+  height: 20px;
+  border-left: solid 1px #1865c2;
+  border-right: solid 1px #1865c2; }
+
+  /* line 827, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.forkleft {
+  width: 30%;
+  position: relative;
+  left: 15%;
+  border-top: solid 1px #1865c2;
+  height: 20px;
+  border-left: solid 1px #1865c2;
+  border-right: solid 1px #1865c2; }
+
+   /* line 827, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.forkleftfirst {
+  width: 30%;
+  position: relative;
+  left: 5%;
+  border-top: solid 1px #1865c2;
+  height: 20px;
+  border-left: solid 1px #1865c2;
+  border-right: solid 1px #1865c2; }
+
+
+    /* line 827, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.forkwide {
+  width: 50.5%;
+  margin: auto;
+  left: 50%;
+  height: 20px;
+  border-left: solid 1px #1865c2;
+  border-right: solid 1px #1865c2; }
+
+/* line 836, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail {
+  text-align: center; }
+
+/* line 840, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .tree-top {
+  width: 125px;
+  height: 125px;
+  border-radius: 15%;
+  background: #333333;
+  border: solid 4px #1865c2;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 10px 0;
+  font-family: "proxima-nova", sans-serif;
+  text-transform: uppercase; }
+
+/* line 857, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .tree-top img {
+  width: 56px;
+  margin: 0 auto 5px;
+  display: block; }
+
+/* line 864, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell {
+  width: 330px;
+  height: 188px;
+  background: #fff;
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  border-radius: 3%; }
+
+/* line 873, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.two {
+  width: 50%; }
+
+/* line 873, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.twoskinny {
+  width: 35%; }
+
+/* line 877, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.three {
+  width: calc(60% + 20px); }
+
+/* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork-box {
+  width: 25%;
+  display: inline-block;
+  text-align: center; }
+
+  /* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork-boxouter {
+  width: 52%;
+  display: inline-block;
+  text-align: center; }
+
+/* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.plus-otherequity {
+  width: 100%;
+  position: relative;
+  left: 22%;  }
+
+/* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.plus-roaa {
+  width: 100%;
+  position: relative;
+  left: -23%;  }
+
+  /* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+/* line 881, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork-boxplusother {
+  width: 25%;
+  position: relative;
+  right: 39%;  }
+
+    /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.threeleft {
+  width: 90%;
+  position: relative;
+  right: 10%; }
+
+    /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.all {
+  width: 80%;
+  position: relative;
+  right: 0%; }
+
+    /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.threeleftfirst {
+  width: 50%;
+  position: relative;
+  right: 14%; }
+
+      /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.threeleftsecond {
+  width: 65%;
+  position: relative;
+  right: 5%; }
+
+
+  /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.threeright {
+  width: 90%;
+  position: relative;
+  left: 10%; }
+
+/* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.four {
+  width: 40%; }
+
+  /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.fourleft {
+  width: 90%;
+  position: relative;
+  right: 37.5%; }
+
+  /* line 887, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.fork.fourright {
+  width: 90%;
+  position: relative;
+  left: 37.5%; }
+
+
+/* line 891, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.two {
+  max-width: calc(50% - 20px); }
+
+  /* line 895, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.three {
+  max-width: calc(33.3333333% - 20px); }
+
+ /* line 895, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.threeblank {
+  vertical-align: top;
+  max-width: calc(33.3333333% - 20px);
+  background: #e6e6e6;}
+
+   /* line 895, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.threeblankline {
+  max-width: calc(33.3333333% - 20px);
+  background: #e6e6e6;
+  }
+
+/* line 899, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.four {
+  max-width: calc(25% - 20px); }
+
+
+/* line 899, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell.fourblank {
+vertical-align: top;
+  max-width: calc(25% - 20px);
+  background: #e6e6e6;}
+
+/* line 903, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell .header {
+  height: 15%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: bold; }
+
+/* line 912, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .cell .graph1 {
+  padding-top: 5px;
+  height: 140px; }
+
+/* line 916, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.tag {
+  position: absolute;
+  float: right;
+  top: -125px;
+  left: -10%;
+  width: 120%;
+  height: 125px;
+  z-index:998;
+  background: #fff;
+  border-top: 10px solid #1e7ef3;
+  border-left: 1px dotted #1e7ef3;
+  border-right: 1px dotted #1e7ef3;
+  border-bottom: 1px dotted #1e7ef3;
+  padding-left: 10px;
+  display:none;
+}
+
+/* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .circlecontrol {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: #1865c2;
+  position: relative;
+  vertical-align: middle;
+  margin:0 auto;
+ }
+
+/* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .delete {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+
+  vertical-align: middle;
+ }
+
+ #simulation-detail .delete img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  margin:0 auto;
+ }
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail  .circlecontrol.light {
+  background: #1e7ef3; }
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail  .circlecontrol.selected {
+  background: Red; }
+
+
+/* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .circle {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #1865c2;
+  position: relative;
+  vertical-align: middle;
+  margin:0 auto;
+ }
+
+/* line 298, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .circle img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -40px 0 0 -40px;
+  }
+
+/* line 305, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail  .circle.light {
+  background: #1e7ef3; }
+
+/* line 751, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .col {
+  width: 90%;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+ }
+
+/* line 758, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .col label{
+  padding-left: 45px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: normal;
+  text-align: left;
+  }
+
+
+/* line 946, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .buttons .col {
+  display: inline-block;
+  width: 30px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-right: 5px; }
+
+/* line 959, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .buttons .col .box {
+  width: 100%;
+  background: #e5e5e5;
+  height: 28px;
+  font-size: 10px;
+  box-sizing: border-box;
+  padding: 7px 0; }
+
+/* line 969, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .buttons .line {
+  padding-top: 8px;
+  width: 30px;
+  height: 45px; }
+
+/* line 975, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .buttons .line img {
+  height: 30px; }
+
+/* line 779, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#simulation-detail .col input {
+  width: 70%;
+  font-weight: normal;  }
+
+/* line 916, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.controls {
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30px; }
+
+
+  /* line 916, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.trafficlights {
+  float: right;
+  background: DarkGray;
+  width: 56px;
+  height: 22px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 2px;
+ }
+
+#simulation-detail .trafficlights .circle {
+  float: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: LightGray;
+  margin:0 auto;
+ }
+
+
+#simulation-detail .trafficlights .circlegreen {
+  float: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: Green;
+  margin:0 auto;
+ }
+
+#simulation-detail .trafficlights .circlelightgreen {
+  float: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: LightGreen;
+  margin:0 auto;
+ }
+
+#simulation-detail .trafficlights .circleorange {
+  float: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: Orange;
+  margin:0 auto;
+ }
+
+ #simulation-detail .trafficlights .circlered {
+  float: right;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: Red;
+  margin:0 auto;
+ }
+
+
+/* line 924, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#background {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0; }
+
+/* line 934, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#single-table {
+  background: #fff;
+  margin-bottom: 10px; }
+
+/* line 939, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#single-table th {
+  background: #e6e6e6;
+  padding: 0;
+  vertical-align: middle; }
+
+/* line 946, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .buttons .col {
+  display: inline-block;
+  width: 30px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-right: 5px; }
+
+/* line 959, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .buttons .col .box {
+  width: 100%;
+  background: #e5e5e5;
+  height: 28px;
+  font-size: 10px;
+  box-sizing: border-box;
+  padding: 7px 0; }
+
+/* line 969, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .buttons .line {
+  padding-top: 16px;
+  width: 30px;
+  height: 45px; }
+
+/* line 975, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#drivers .buttons .line img {
+  height: 30px; }
+
+/* line 979, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.left-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer; }
+
+/* line 986, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#block-view {
+  left: 60px; }
+
+/* line 990, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+#graph-view {
+  left: 126px; }
+
+/* line 994, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+input.reverse {
+  transform: rotateY(180deg); }
+
+
+/* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.aboutCircle {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  vertical-align: top;
+  background: #1865c2;
+  position: relative;
+  margin:3px auto;
+ }
+
+/* line 298, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.aboutImg {
+  border-radius: 50%;
+  }
+
+  /* line 289, /Users/bairdlackner-buckingham/projects/Fergus/web/client/app/css/main.scss */
+.aboutText {
+  display: inline-block;
+  width: 80%;
+ }
+
+@media only screen and (max-width: 1366px) {
+  /* line 999, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+  section#hero {
+    height: 150px;
+    padding-top: 25px; }
+  /* line 1004, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+  section#main.home .row {
+    margin-bottom: 20px; } }
+
+/* line 1009, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+input[type="text"], input[type="password"], input[type="tel"] {
+    background: #e6e6e6;
+    border: none;
+    border-radius: 0;
+    width: 50%;
+    position:relative;
+}
+
+/* line 1013, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-left {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
+  padding-top: 15px; }
+
+/* line 1020, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+
+  margin: 25px 0;}
+
+/* line 1026, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.posts h1 {
+  font-size: 24px;
+  line-height: 1em;
+  margin: 25px 0; }
+
+/* line 1032, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.posts h1 a {
+  color: #000; }
+
+/* line 1036, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-left h1 {
+
+  font-size: 24px;
+  text-transform: uppercase; }
+
+/* line 1041, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.modal {
+  width: 500px;
+  height: 550px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -275px;
+  background: #fff;
+  box-sizing: border-box;
+
+  padding: 50px; }
+
+/* line 1041, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.post {
+
+  padding-top: 30px;
+}
+
+/* line 1054, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.modal select {
+  width: 250px;
+  background: #fff; }
+
+/* line 1059, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.add {
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+  top: 4px; }
+
+/* line 1066, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right table {
+  border: solid 1px #000; }
+
+/* line 1070, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right table tr {
+  border-top: solid 1px #000; }
+
+/* line 1074, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right table tr:first-child {
+  border-top: none; }
+
+/* line 1078, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right table tr:first-child td {
+  background: #ccc;
+  padding: 10px;
+  box-sizing: border-box; }
+
+/* line 1084, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.col-right table tr td {
+  padding: 10px;
+  box-sizing: border-box; }
+
+/* line 1089, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.posts .divider-full {
+  margin: 15px 0; }
+
+/* line 1093, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.posts .readmore a, .posts a {
+  color: #61c3fc; }
+
+/* line 1097, /Users/bairdlackner-buckingham/projects/Fergus/web/mvp/client/app/css/main.scss */
+.posts .date {
+  font-size: 11px; }
+
+/*# sourceMappingURL=main.css.map */
+
+
+.posts .col-left h1, .posts .post h1{
+    font-size:40px;
+    font-weight:bold;
+    letter-spacing:0em;
+    text-transform:uppercase;
+}
+
+.posts .post h1{
+    font-size:24px;
+}
+
+.smallImg{
+    width:100px;
+    height:auto;
+}
+
+.smallImg.left{
+    margin-right:15px;
+}
+
+#modal{
+    width:500px;
+    height:550px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin:-275px 0 0 -250px;
+    background:#fff;
+    border:solid 5px rgba(0,0,0,0.5);
+    box-sizing:border-box;
+    padding:50px;
+}
+
+#modal-background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.8);
+    top:0;
+    left:0;
+    cursor:pointer;
+}
+
+#close{
+    position:absolute;
+    right:50px;
+    top:50px;
+    cursor:pointer;
+}
+
+
+.hosted-field {
+  height: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  display: inline-block;
+  box-shadow: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  line-height: 20px;
+  background: #fcfcfc;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, white 50%, #fcfcfc 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 300ms ease-in-out;
+}
+
+.hosted-fields--label {
+  font-family: courier, monospace;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.button-container {
+  display: block;
+  text-align: center;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 500;
+  line-height: inherit;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+}
+
+.button--small {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.button--green {
+    outline: none;
+    background-color: #1865c2;
+    color: white;
+    transition: all 200ms ease;
+    text-shadow:none;
+    box-shadow:none;
+}
+
+.button--green:hover {
+  background-color: #1865c2;
+  color: white;
+}
+
+.braintree-hosted-fields-focused {
+  border: 1px solid #64d18a;
+  border-radius: 1px;
+  background-position: left bottom;
+}
+
+.braintree-hosted-fields-invalid {
+  border: 1px solid #ed574a;
+}
+
+.braintree-hosted-fields-valid {
+}
+
+#cardForm {
+  max-width: 50.75em;
+  margin: 0 auto;
+  padding: 1.875em;
+}
+
+.click{
+    cursor:pointer;
+    color: #1865c2;
+}

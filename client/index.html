@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114308392-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-114308392-1');
+	</script>
+
+	
+    <meta charset="UTF-8">
+    <title>BANK PERFORMANCE RATIOS AND ANALYSIS</title>
+    <meta name="viewport" content="width=400, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/app/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/client.min.css">
+    <link rel="stylesheet" type="text/css" href="/app/js/dependencies/c3/c3.min.css">
+
+    <script type="text/javascript" src="/app/js/dependencies/amcharts_3/amcharts/amcharts.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/radar.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/xy.js"></script>
+	 <script type="text/javascript" src="/app/js/dependencies/amcharts_3.19.0.free/amcharts/plugins/export/export.min.js"></script>
+		 <link type="text/css" href="/app/js/dependencies/amcharts_3.19.0.free/amcharts/plugins/export/export.css" rel="stylesheet">
+
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/paypal.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/data-collector.min.js"></script>
+    
+    <script src="https://use.typekit.net/kty3amj.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<script src="es6-promise.js"></script>
+
+</head>
+<body>
+
+    <header id="top">
+        <section id="left">
+            <a href="/"><img src="/app/assets/images/logo.jpg"></a>
+            <nav>
+                <ul>
+            		<li> <a href="/">HOME</a></li>
+                    <li id="industry-main"><a href="/industry">INDUSTRY PERFORMANCE</a></li>
+                    <li id="individual-main"><a href="/individual"> BANK PERFORMANCE</a></li>
+                    <li id="perspectives-main"><a href="/perspectives">PERSPECTIVES</a></li>
+                    <li id="about-main"><a href="/about">ABOUT</a></li>
+                </ul>
+            </nav>
+			
+			<div id="menu" class="menu" onclick="menu()">
+            	<img src="/app/assets/images/menu.png">
+			</div>
+			
+			<div id="iphonemenu" class="iphonemenu">
+			<nav id="nav" onclick="menu()">
+                
+				<ul>
+            		<li> <a href="/">HOME</a></li>
+                    <li id="industry-main"><a href="/industry">INDUSTRY PERFORMANCE</a></li>
+                    <li id="individual-main"><a href="/individual"> BANK PERFORMANCE</a></li>
+                    <li id="perspectives-main"><a href="/perspectives">PERSPECTIVES</a></li>
+                    <li id="about-main"><a href="/about">ABOUT</a></li>
+                </ul>
+            </nav>
+			</div>
+		
+            	
+			
+            <aside>
+                <ul id="account-options">
+
+                </ul>
+            </aside>
+        </section>
+    </header>
+
+    <section id="content"></section>
+
+    <div id="chart"></div>
+
+    <footer></footer>
+
+    <script src="/app/js/dist/dependencies.min.js"></script>
+    <script src="/app/js/dependencies/Chart.js/Chart.js"></script>
+    <script src="/app/js/dist/blklab-v0.0.1.js"></script>
+    <script src="/app/js/dist/client-v0.0.1.js"></script>
+
+
+
+
+</body>
+
+<script>
+	function menu() {
+		
+		var x = document.getElementById("nav");
+	    if (x.style.display == 'none') {
+	        x.style.display = 'block';
+		
+	    } else {
+	        x.style.display = 'none';
+		
+	    }
+	
+		
+	};
+	
+</script>	
+	
+</html>
+
+

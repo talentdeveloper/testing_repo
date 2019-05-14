@@ -1,0 +1,20 @@
+
+
+var knex = require('knex')({
+  client: 'mysql',
+  connection: {
+//    host     : '162.242.220.151',
+	host:'localhost',
+//    host     : '3.18.28.162',
+//    host     : 'usbank',
+    port: '3306',	
+    user     : 'root',
+    password : 'root',
+    database : 'csv_mvp',
+    charset  : 'utf8'
+  }
+
+});
+
+module.exports = require('bookshelf')(knex);
+

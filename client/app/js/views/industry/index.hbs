@@ -1,0 +1,181 @@
+<section id="hero">
+<div class="text1">
+    <h1 class="title">Industry Analyzer</h1><h2 class="title">PERFORMANCE SNAPSHOT</h2>
+    <p class="sub-title">Gain insights into the performance of banking industry by reviewing snapshots of results relative to historical performance.</p>
+</div>
+
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li class="selected"><a href="/industry">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li><a href="/industry/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+    </div>
+
+</section>
+
+<section id="main" class="home">
+    <section id="filters">
+        <div class="col">
+            <h3>INDUSTRY SEGMENT:</h3>
+            <select blklab-change="changeSegment" id="segment-list">
+                {{#each indSegments}}
+                    <option value="{{id}}" name="{{userId}}">{{segment}}</option>
+                {{/each}}
+            </select>
+			<div></div>
+			
+			<div class="segment_image">
+				<img blklab-click="peerMenu" HR WIDTH="90%" HR HEIGHT="90%" src="/app/assets/images/multiple-users.svg">	
+				<div id="peerMenu" class="peerMenu">
+					<div blklab-click="showPeers">
+        				<div class = "segment_image2" id="view_segment">
+           					<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/glasses.png">
+         				</div>
+						<div class="peerSet">View segment participants</div>
+						<div id="peerDetails"></div>
+					</div>	
+				<div></div>
+					
+        		<div blklab-click="addSegment">
+					<div class="segment_image2">
+        				<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/plus.png">
+        			</div>
+					<div class="peerSet" id="addSegment">Create custom segment</div>
+				</div>
+				<div blklab-click="editSegment">
+				<div class="segment_image2">
+           			<img HR WIDTH="70%" HR HEIGHT="70%" src="/app/assets/images/pencil.png">
+           		</div>
+					<div class="peerSet" id="editSegment">Edit existing segment</div>
+				</div>
+			</div>
+			</div>			
+        </div>
+
+      <div class="colhidden">
+            <h3>SELECT RESULTS</h3>
+            <select blklab-change="changeScreen" id="screen-list">
+                {{#each screens}}
+                    <option value="{{id}}">{{Screen_description}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+       <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> PREMIUM CONTENT</h2>
+        </div> 
+    </section>
+
+    <section id="data">
+        <div class="block single">
+            <h4>SHAREHOLDER RETURNS</h4>
+            <div class="chart-holder">
+                <div class="chart">
+                    <h3>Total Returns - 1 year</h3>
+                    <div class="overlay">
+                        <p id="tr_1_value" class="value"></p>
+                        <p id="tr_1_perc" class="perc"></p>
+                    </div>
+                    <canvas id="tr_1" data-id="TR_1" class="graph" width="230" height="230"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="block double">
+            <h4>SHAREHOLDER VALUE DRIVERS</h4>
+            <div class="chart-holder">
+                <div class="chart">
+                    <h3>Profitability (Spread)</h3>
+                    <div class="overlay">
+                        <p id="spread_value" class="value"></p>
+                        <p id="spread_perc" class="perc"></p>
+                    </div>
+                    <canvas id="spread" data-id="Spread" class="graph" width="230" height="230"/>
+                </div>
+
+                <div class="chart">
+                    <h3>Equity Growth Rate </h3>
+                    <div class="overlay">
+                        <p id="equity_growth_rate_value" class="value"></p>
+                        <p id="equity_growth_rate_perc" class="perc"></p>
+                    </div>
+           		 	    <canvas id="equity_growth_rate" data-id="Equity_Growth_Rate" class="graph" width="230" height="230"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="block double">
+            <h4>PROFITABILITY DRIVERS</h4>
+            <div class="chart-holder">
+                <div class="chart">
+                    <h3>Return On Equity</h3>
+                    <div class="overlay">
+                        <p id="roae_value" class="value"></p>
+                        <p id="roae_perc" class="perc"></p>
+                    </div>
+                    <canvas id="roae" data-id="ROAE" class="graph" width="230" height="230"/>
+                </div>
+
+                <div class="chart">
+                    <h3>Cost Of Capital</h3>
+                    <div class="overlay">
+                        <p id="cost_of_capital_value" class="value"></p>
+                        <p id="cost_of_capital_perc" class="perc"></p>
+                    </div>
+                    <canvas id="cost_of_capital" data-id="Cost_of_Capital" class="graph" width="230" height="230"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="block full">
+            <h4>RETURN ON EQUITY DRIVERS</h4>
+            <div class="chart-holder">
+                <div class="chart">
+                    <h3>Cost Efficiency</h3>
+                    <div class="overlay">
+                        <p id="costs_avg_ea_dep_value" class="value"></p>
+                        <p id="costs_avg_ea_dep_perc" class="perc"></p>
+                    </div>
+                    <canvas id="costs_avg_ea_dep" data-id="Costs_Avg_EA_Dep" class="graph" width="230" height="230"/>
+                </div>
+
+                <div class="chart">
+                    <h3>Loan Loss Ratio</h3>
+                    <div class="overlay">
+                        <p id="llr_value" class="value"></p>
+                        <p id="llr_perc" class="perc"></p>
+                    </div>
+                    <canvas id="llr" data-id="LLR" class="graph" width="230" height="230"/>
+                </div>
+                <div class="chart">
+                    <h3>Asset Yields</h3>
+                    <div class="overlay">
+                        <p id="asset_yield_value" class="value"></p>
+                        <p id="asset_yield_perc" class="perc"></p>
+                    </div>
+                    <canvas id="asset_yield" data-id="Asset_Yield" class="graph" width="230" height="230"/>
+                </div>
+
+                <div class="chart">
+                    <h3>Leverage</h3>
+                    <div class="overlay">
+                        <p id="leverage_value" class="value"></p>
+                        <p id="leverage_perc" class="perc"></p>
+                    </div>
+                    <canvas id="leverage" data-id="Leverage" class="graph" width="230" height="230"/>
+                </div>
+                <div class="chart">
+                    <h3>Effective Tax Rate</h3>
+                    <div class="overlay">
+                        <p id="roaa_effective_tax_rate_value" class="value"></p>
+                        <p id="roaa_effective_tax_rate_perc" class="perc"></p>
+                    </div>
+                    <canvas id="roaa_effective_tax_rate" data-id="ROAA_Effective_Tax_Rate" class="graph" width="230" height="230"/>
+                </div>
+            </div>
+        </div>		
+</section>

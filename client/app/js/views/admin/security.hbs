@@ -1,0 +1,24 @@
+<section id="data">
+    <h2>API Security</h2>
+    <table>
+        <tr>
+            <th>Path</th>
+            <th>User Level</th>
+        </tr>
+        {{#each data}}
+            <tr>
+                <td>{{path}}</td>
+                <td>
+                    <select blklab-change="changeLevel" data-id="{{id}}">
+                        {{#select level}}
+                            <option value="1">Unregistered</option>
+                            <option value="2">Registered</option>
+                            <option value="3">Premium</option>
+                            <option value="4">Admin</option>
+                        {{/select}}
+                    </select>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</section>

@@ -1,0 +1,36 @@
+<section id="hero">
+    <div class="text">
+        <h1 class="title">DISCUSSIONS AND PERSPECTIVES</h1>
+
+        <p class="sub-title">Read the lastest points of view posted by our team and industry analysts.<br><br></p>
+    </div>
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                   <li>RECENT POSTS </li>
+           </ul>
+        </div>
+    </div>
+
+
+</section>
+<section id="main" class="posts">
+    <div class="inner">
+        {{#each data}}
+            <div class="post">
+                <h1>{{#if title_image}}
+                    <img src="/app/assets/images/{{title_image}}" class="aboutImg smallImg left">
+                {{/if}}<a href="/perspectives/{{id}}">{{title}}</a></h1>
+
+                {{{descrip}}}
+
+                <p class="readmore"><a href="/perspectives/{{id}}">Read More</a></p>
+
+                <p class="date">Posted On {{timestamp}} by {{author}}</p>
+            </div>
+            <div class="divider-full"></div>
+        {{else}}
+            <h1>No Perspectives</h1>
+        {{/each}}
+    </div>
+</section>

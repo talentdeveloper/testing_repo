@@ -1,0 +1,226 @@
+<section id="hero">
+<div class="text1">
+    <h1 class="title">Individual Bank</h1><h2 class="title"> ESTIMATES & OUTLOOK</h2>
+    <p class="sub-title">Gain insights into the future performance of individual banks by understanding the likely impact of market assumptions and forecasts.</p>
+</div>
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/individual">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li><a href="/individual/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/individual/outlook"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspESTIMATES & OUTLOOK</a></li>
+                <li>|</li>
+                <li><a href="/individual/simulation"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspWHAT-IF SIMULATOR</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<section id="main" class="individual">
+    <section id="filters">
+        <div class="col">
+            <h3>BANK HOLDING COMPANY</h3>
+            <select blklab-change="changeCompany" id="company-list">
+                {{#each companies}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+
+        <div class="col">
+            <h3>INDUSTRY SEGMENT:</h3>
+            <select blklab-change="changeSegment" id="segment-list">
+                {{#each segments}}
+                     <option value="{{id}}" name="{{userId}}">{{segment}}</option>
+                {{/each}}
+            </select> 
+			<div class="segment_image">
+				<img blklab-click="peerMenu" HR WIDTH="90%" HR HEIGHT="90%" src="/app/assets/images/multiple-users.svg">	
+				<div id="peerMenu" class="peerMenu">
+					<div blklab-click="showPeers">
+        				<div class = "segment_image2" id="view_segment">
+           					<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/glasses.png">
+         				</div>
+						<div class="peerSet">View segment participants</div>
+						<div id="peerDetails"></div>
+					</div>	
+				<div></div>
+					
+        		<div blklab-click="addSegment">
+					<div class="segment_image2">
+        				<img HR WIDTH="80%" HR HEIGHT="80%" src="/app/assets/images/plus.png">
+        			</div>
+					<div class="peerSet" id="addSegment">Create custom segment</div>
+				</div>
+				<div blklab-click="editSegment">
+				<div class="segment_image2">
+           			<img HR WIDTH="70%" HR HEIGHT="70%" src="/app/assets/images/pencil.png">
+           		</div>
+					<div class="peerSet" id="editSegment">Edit existing segment</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+        <div class="colhidden">
+            <h3>SELECT RESULTS</h3>
+            <select blklab-change="changeScreen" id="screen-list">
+                {{#each screens}}
+                    <option value="{{id}}">{{Screen_description}}</option>
+                {{/each}}
+            </select>
+        </div>
+<!--
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> PREMIUM CONTENT</h2>
+        </div>
+
+--!>
+    </section>
+
+    <section id="data">
+        <div class="block full">
+            <div class="chart-holder">
+                <table style="layout: fixed; width:100%; border:0">
+                    <tr>
+                        <td Rowspan=1; style="width:35%;  vertical-align: top; background-color:#fff">
+
+                            <!-- <div style="display: block; width: 100%; height: 3%; text-align:Left"><b>&nbspESTIMATES</b></div> --!>
+                            <div id="Assumptions" style="display: block; width: 100%; height: 97%; text-align:Left">
+
+                                <table style="width: 90%; height: 95%; margin-left: auto; margin-right: auto;">
+                                    <tr>
+                                        <th colspan = 2 style="width: 60%">&nbspESTIMATES</th>
+                                        <th style="width: 2.5%"></th>
+                                        <th style="width: 15%; text-align:center" id="year_current"></th>
+                                        <th style="width: 2.5%"></th>
+                                        <th style="width: 15%; text-align:center" id="year_future"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan = 2 style="width: 60%"><b><i>&nbsp&nbspEconomic Profitabilty</i></b></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="spread_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="spread_future"></td>
+                                    </tr>
+                                    <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 57.5%">&nbsp&nbspReturn on Equity</td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="roae_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="roae_future"></td>
+                                    </tr>
+                                    <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 57.5%">&nbsp&nbspCost of Capital</td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="Cost_of_Capital_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="Cost_of_Capital_future"></td>
+                                    </tr>
+                                    <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td colspan = 2 style="width: 60%"><b><i>&nbsp&nbspEquity Growth Rate</i></b></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="equity_growth_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="equity_growth_future"></td>
+                                    </tr>
+                                    <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 57.5%">&nbsp&nbspAsset Growth Rate</td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="ea_growth_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="ea_growth_future"></td>
+                                    </tr>
+                                    <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 57.5%">&nbsp&nbspLeverage</td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="leverage_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 1px solid gray; text-align:center" id="leverage_future"></td>
+                                    </tr>
+                                     <tr style="height: 1%"></tr>
+                                    <tr>
+                                        <td colspan = 2 style="width: 60%"><b><i>&nbsp&nbspCommon Share Growth Rate</i></b></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="shares_growth_current"></td>
+                                        <td style="width: 2.5%"></td>
+                                        <td style="width: 15%; border: 2px solid gray; text-align:center" id="shares_growth_future"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+
+
+                        <td style="width:1%;vertical-align: top;"></td>
+
+                        <td style="width:35%;vertical-align: top;   background-color:#fff">
+                            <div style="width: 100%; display: inline-block; height: 3%; text-align:center"><b>Total Returns Outlook</b></div>
+                            <div id="pct_cht" style="width: 100%; height:250px; "></div>
+                        </td>
+
+                        <td style="width: 1%; "></td>
+
+                        <td id="Peers" Rowspan=3 style="width:27%;  text-align:center; align: center; vertical-align: middle; background-color:#fff">
+                                <div style="width=100%; vertical-align: top; height:1%; display: inline-block; "><b><br>Estimated Total Returns - 5 year avg</b></div>
+                                <div id="peers_cht" style="width: 100%; height: 500px; align: center; "></div>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan=3 style="width:34%; height:1%"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td id="SP" colspan=1 style="width:35%;">
+
+                        <div id="tradeoff_chrt" style="width: 100%; height:275px;background-color:#fff"></div>
+                        </td>
+                           <td style="width:1%; vertical-align: top;  height:32%"></td>
+                        <td id="SP" colspan=1 style="width:35%;">
+                                <div id="TRS_chrt" style="width: 100%; inline-block; height:275px;  background-color:#fff"></div>
+                            </td>
+
+                        <td style="width:1%; vertical-align: top;  height:32%"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" style="width:73%; height:1%"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" style="width:%; ">
+                                <div id="hide" style="float: left;width: 49%;  background-color:#fff">
+                                <div style="width: 100%; height: 10%; text-align:Center;margin: auto"><b>Top Quartile Shareholder Returns<br>ROE vs. Equity Growth Rate Trade  Off</b></div>
+                                <div id="tradeoff_chrt" style="width: 100%; height:275px;"></div>
+                            </div>
+                            <div id="hide1" style="float: right;width: 49%;  background-color:#fff">
+                                <div style="width: 100%; height: 10%; text-align:Center"><b>Market Capitalization <br> Value of Current Operations vs. Future Growth</b></div>
+                                <div id="fgv_vco_chrt" style="width: 100%; height:275px;  border: 0px solid black"></div>
+
+                            </div>
+                        </td>
+                        <td style="width:1%; vertical-align: top;  height:32%"></td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+    </section>
+</section>

@@ -1,0 +1,1 @@
+Fatal error: cannot open file 'pathtoscript/Users/fergusg/Documents/Godolphin/R_SCRIPTS/R-Master': No such file or directory

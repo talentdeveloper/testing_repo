@@ -1,0 +1,94 @@
+<section id="data">
+    <h2>Perspectives</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {{#each data}}
+            <tr>
+                <td><a href="/admin/perspectives/{{id}}">{{title}}</a></td>
+                <td>{{timestamp}}</td>
+                <td class="center"><a href="/admin/perspectives/{{id}}">Edit</a></td>
+                <td class="center" blklab-click="remove" data-id="{{id}}">DELETE</td>
+            </tr>
+        {{/each}}
+    </table>
+
+    <hr>
+
+    <h2 style="margin-top:30px;">New Perspective</h2>
+    <form blklab-submit="save" id="form">
+
+        <div class="row">
+            <h3>Title</h3>
+            <input type="text" name="title" style="background:#e6e6e6; border:none; border-radius:0; width:50%;">
+        </div>
+
+        <div class="row">
+            <h3>Sub Title</h3>
+            <input type="text" name="sub_title" style="background:#e6e6e6; border:none; border-radius:0; width:50%;">
+        </div>
+
+        <div class="row">
+            <h3>Author</h3>
+            <input type="text" name="author" style="background:#e6e6e6; border:none; border-radius:0; width:50%;">
+        </div>
+
+
+        <section id="filters">
+            <div class="col">
+                <h3>SELECT INDUSTRY SEGMENT</h3>
+                <select blklab-change="changeSegment" name="segment" id="segment-list">
+                    <option>All</option>
+                    {{#each segments}}
+                        <option value="{{id}}">{{segment}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="col">
+                <h3>SELECT RESULTS</h3>
+                <select blklab-change="changeScreen" name="screen" id="screen-list">
+                    <option>All</option>
+                    {{#each screens}}
+                        <option value="{{id}}">{{Screen_description}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="col">
+                <h3>SELECT COMPANY</h3>
+                <select blklab-change="changeCompany" name="company" id="company-list">
+                    <option>All</option>
+                    {{#each companies}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </section>
+
+        <div class="clear"></div>
+
+        <div class="row">
+            <h3>Title Image</h3>
+            <input type="file" style="background:#e6e6e6; border:none; border-radius:0; width:50%;" blklab-change="loadFiles">
+            <input type="hidden" name="title_image" id="title_image">
+        </div>
+
+        <div class="row">
+            <h3>Text</h3>
+            <div class="editor" id="editor" style="background:#e6e6e6; height:400px; overflow: auto; padding:5px;" blklab-change="updateForm"></div>
+            <input type="hidden" id="text-content" name="content">
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save">
+        </div>
+
+    </form>
+
+</section>
+

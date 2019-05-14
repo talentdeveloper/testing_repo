@@ -1,0 +1,130 @@
+<section id="hero">
+    <h1 class="title">Individual Bank Analyzer</h1><h2 class="title">WHAT-IF SIMULATOR</h2>
+    <p class="sub-title">Gain insights into the performance of individual banks by simulating a range of what-if scenarios.</p>
+
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/individual">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li><a href="/individual/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/individual/outlook">ESTIMATES & OUTLOOK</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/individual/simulation">WHAT-IF SIMULATOR</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<section id="main" class="individual">
+    <section id="filters">
+        <div class="col">
+            <h3>SELECT BANK <img src="/app/assets/images/premium-icon-red.png"></h3>
+            <select blklab-change="changeCompany" id="company-list">
+                {{#each companies}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="col">
+        </div>
+
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> SAVE/LOAD SIMULATION</h2>
+        </div>
+    </section>
+
+    <section id="data" class="sim">
+        <div class="block full auto">
+            <header>SIMULATED OUTCOMES</header>
+            <section class="detail"  id="outcomes">
+                <div class="col">
+                    <label>Total Shareholder Returns: </label> <span>0% (0%) <img src="/app/assets/images/outcome-arrow.png"> 0% (0%) <img src="/app/assets/images/outcome-graph.png"></span>
+                </div>
+            </section>
+        </div>
+
+        <div class="block full auto">
+            <header>ASSUMPTIONS</header>
+            <section class="detail" id="drivers">
+                <div class="col">
+                    <label>Efficiency Ratio</label>
+                    <input type="range" id="er-slider" blklab-change="updateER" class="reverse" />
+                    <div id="er-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Loan Loss Ratio</label>
+                    <input type="range" id="llr-slider" blklab-change="updateLLR" class="reverse" />
+                    <div id="llr-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Asset Yield</label>
+                    <input type="range" id="ay-slider" blklab-change="updateAY" />
+                    <div id="ay-years" class="buttons">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label>Leverage</label>
+                    <input type="range" id="lev-slider" blklab-change="updateLev" />
+                    <div id="lev-years" class="buttons">
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <div class="block full auto">
+            <header>SIMULATION DETAILS</header>
+            <section class="detail" id="simulation-detail">
+                <img src="/assets/images/list-view.png" class="left-button" id="list-view">
+                <img src="/assets/images/block-view.png" class="left-button" id="block-view">
+                <img src="/assets/images/graph-view.png" class="left-button" id="graph-view">
+
+                <div class="cell">
+                    <!-- <div class="controls"><img src="/assets/images/controls.png"></div> --!>
+                    <div class="header">Cost of Equity (%)</div>
+                    <div id="cost_of_capital" class="graph"></div>
+                </div>
+				
+                <div class="vertical-line"></div>
+                <div class="fork three">
+                    <div class="vertical-line"></div>
+                </div>
+				
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">10yr US Bond Rate (%) </div>
+                    <div id="risk_free_rate" class="graph"></div>
+                </div>				
+
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Stock Beta</div>
+                    <div id="beta" class="graph"></div>
+                </div>
+				
+                <div class="cell three">
+                    <div class="controls"><img src="/assets/images/controls.png"></div>
+                    <div class="header">Equity Risk Premium (%)</div>
+                    <div id="equity_risk_premium" class="graph"></div>
+                </div>
+				
+            </section>
+        </div>
+
+    </section>
+</section>

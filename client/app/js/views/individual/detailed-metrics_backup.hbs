@@ -1,0 +1,98 @@
+
+
+<section id="hero">
+<div class="text1">
+    <h1 class="title">Individual Bank Analyzer</h1><h2 class="title"> Ratios & Analysis</h2>
+    <p class="sub-title">Gain insights into the performance of individual banks by analyzing operating ratios relative to peers.</p>
+</div>
+    <div class="overlay">
+        <div class="inner">
+            <ul>
+                <li><a href="/individual">PERFORMANCE SNAPSHOT</a></li>
+                <li>|</li>
+                <li class="selected"><a href="/individual/detailed-metrics">RATIOS & ANALYSIS</a></li>
+                <li>|</li>
+                <li><a href="/individual/outlook"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspESTIMATES & OUTLOOK</a></li>
+                <li>|</li>
+                <li><a href="/individual/simulation"><div class="premiuminline"><img HR WIDTH="15px" HR HEIGHT="15px" src="/app/assets/images/premium-icon-red.png"></div>&nbspWHAT-IF SIMULATOR</a></li>
+                <li>|</li>
+                <li><a href="/perspectives">DISCUSSION & PERSPECTIVES</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</section>
+
+<section id="main" class="individual">
+    <section id="filters">
+        <div class="col">
+            <h3>BANK HOLDING COMPANY:</h3>
+            <select blklab-change="changeCompany" id="company-list">
+                {{#each companies}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col">
+            <h3>INDUSTRY SEGMENT:</h3>
+            <div class = "segment" id="industry_segment"></div>
+
+            <div class = "segment_image" id="view_segment">
+                <img blklab-click="showPeers" HR WIDTH="90%" HR HEIGHT="90%" src="/app/assets/images/multiple-users.svg">
+                <div class="peerSet" id="peerDetails"></div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>RATIOS TO DISPLAY:</h3>
+            <select blklab-change="changeScreen" id="screen-list">
+                {{#each screens}}
+                    <option value="{{id}}">{{Screen_description}}</option>
+                {{/each}}
+            </select>
+        </div>
+<!--
+        <div class="colhidden">
+            <h2><img src="/app/assets/images/premium-icon-red.png"> PREMIUM CONTENT</h2>
+        </div>
+--!>
+    </section>
+
+    <section id="data">
+
+        {{{table}}}
+
+
+        <div class="clear"></div>
+
+    </section>
+
+    <section id="background"></section>
+
+    <section id="chart-holder">
+        <header>
+            <div class="inner">
+                <h2>RATIOS & ANALYSIS</h2>
+            </div>
+            <div id="close">Close X</div>
+        </header>
+        <div class="container">
+            <div id="single-table">
+
+            </div>
+            <div class="left-graphs">
+            <div id="XY_Radio" style="display: block; background:#fff; padding:5px; align: right;">
+                Results:
+                <input type="radio" id="XY1" name="XY_Display" value="PCT" blklab-change="changeType"> Percentiles <input type="radio" id="XY2" name="XY_Display" value="ACT" blklab-change="changeType" checked> Actuals
+            </div>
+                <section id="xydiv"></section>
+                <section id="chartdiv"></section>
+                <section id="spiderdiv"></section>
+            </div>
+            <div class="right-graphs">
+                <section id="bardiv"></section>
+            </div>
+        </div>
+    </section>
+</section>

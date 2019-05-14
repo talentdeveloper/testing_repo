@@ -1,0 +1,45 @@
+<section id="main" class="individual">
+    <section id="data">
+	<div class="registration">
+        <h2>This feature requires a registered account.</h2>
+		<h2>Please login.</h2>
+        <form method="post" blklab-submit="login" id="form">
+		
+
+            <p></p>
+			<p>
+                <label for="email">email</label>
+                <input type="text" name="email" id="email"
+                placeholder="email" required="true"/>
+            </p>
+            <p>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password"
+                placeholder="password" required="true"/>
+            </p>
+            <p>
+                <input type="submit" name="signin" id="signin" value="login"/>
+                <a href="/users/signup" title="register">&nbspCreate Account | </a>
+				<a href="/" title="home">Cancel</a>
+				<p></p>
+                <a href="/users/send-reset" title="Register">Forgot Password?</a>
+            </p>
+
+            <p id="error"></p>
+		</div>
+		<div class="registration regbackground">
+			<h3 class="fontColor"><b>Dont have an account?</b></h3>
+			<h3 class="fontColor"><a href="/users/signup" title="register" class="fontColor">Create an account</a> for free and get 2 weeks access to all Premium content for no cost</h3>
+			<img HR WIDTH="500px" src="/app/assets/images/measure.png">
+			<ul>
+				<li class="spacing">Access over 200 performance metrics for more than 1200 U.S. banks</li>
+				<li class="spacing">Assess a bank's recent performance relative to peers</li>
+				<li class="spacing">Analyze market expectations and the outlook for future performance</li>
+				<li class="spacing">Simulate shareholder returns changes</li>
+				<li class="spacing">Access the latest thinking on the banking industry</li>
+			</ul>
+		
+		</div>
+        </form>
+    </section>
+</section>

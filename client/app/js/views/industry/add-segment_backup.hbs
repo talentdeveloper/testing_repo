@@ -1,0 +1,21 @@
+<div class="modal">
+    <form blklab-submit="createSegment" id="form">
+        <div class="row">
+            <input type="text" name="name" placeholder="Segment Name">
+        </div>
+
+        <div class="row">
+            <select multiple style="height:300px; width: 100%;" id="companies-list">
+                <option>Select Companies</option>
+                {{#each data}}
+                    <option value="{{ID}}">{{Name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="row">
+            <input type="button" value="Cancel" blklab-click="cancel"> <input type="submit" value="Create">
+
+        </div>
+    </form>
+</div>
